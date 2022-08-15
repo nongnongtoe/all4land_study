@@ -30,7 +30,7 @@ public class UserService {
         user.updateUser(request.getPassword(), request.getPassword());
     }
 
-    public User finUser(Long id){
+    public User findUser(Long id){
         return userRepository.findById(id).orElseThrow(()->new IllegalStateException("존재하지 않습니다."));
     }
 
@@ -38,10 +38,11 @@ public class UserService {
 
 
     private void validated(UserSaveForm userSaveForm) {
-        List<User> userEmail = userRepository.findByEmail(userSaveForm.getEmail());
-        if(!userEmail.isEmpty()){
-            throw  new IllegalStateException("이미 존재하는 회원 이메일입니다.");
-        }
+        userRepository.findByEmail(userSaveForm.getEmail())
+                .ifPresent(m->{
+                    throw new IllegalStateException("이미 존재하는 회원입니다.");
+                });
+
     }
 
 

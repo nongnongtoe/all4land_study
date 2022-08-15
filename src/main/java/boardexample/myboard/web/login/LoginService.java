@@ -12,5 +12,11 @@ import org.springframework.transaction.annotation.Transactional;
 public class LoginService {
     private final UserRepository userRepository;
 
+    public User loginUser(String email, String password){
+        return userRepository.findByEmail(email)
+                .filter(u -> u.getPassword().equals(password))
+                .orElse(null);
+    }
+
 
 }
