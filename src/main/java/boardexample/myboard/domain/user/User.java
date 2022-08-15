@@ -41,6 +41,12 @@ public class User {
     @OneToMany(mappedBy = "user")
     private List<MyFamilyHistory> myFamilyHistories = new ArrayList<>();
 
+    public void updateUser(String password, String phone)
+    {
+        this.password = password;
+        this.phone = phone;
+    }
+
     @Builder
     public User(String email, String password, String phone) {
         this.email = email;
