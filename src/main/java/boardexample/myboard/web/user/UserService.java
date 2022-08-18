@@ -27,7 +27,7 @@ public class UserService {
         User user = userRepository.findById(id)
                 .orElseThrow(() -> new IllegalArgumentException("해당회원이업습니다. " + id));
 
-        user.updateUser(request.getPassword(), request.getPassword());
+        user.updateUser(request.getPassword(), request.getPhone());
     }
 
     public User findUser(Long id){
