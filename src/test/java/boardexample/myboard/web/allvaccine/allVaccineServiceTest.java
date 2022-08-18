@@ -2,8 +2,8 @@ package boardexample.myboard.web.allvaccine;
 
 
 import boardexample.myboard.domain.allvaccine.AllVaccine;
-import boardexample.myboard.domain.allvaccine.AllVaccineRepository;
-import org.assertj.core.api.Assertions;
+import boardexample.myboard.web.allvaccine.dto.updateVaccine;
+import boardexample.myboard.web.allvaccine.dto.vaccineSaveForm;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -56,5 +56,19 @@ class allVaccineServiceTest {
 
         assertThat(vaccine.getTitle()).isEqualTo(update.getTitle());
     }
+
+    @Test
+    public void 백신삭제(){
+        vaccineSaveForm saveForm = new vaccineSaveForm(1, 4, "백신1~4");
+        Long save = allVaccineService.save(saveForm);
+        allVaccineService.deleteVaccine(save);
+
+
+        //then
+        //assertThatThrownBy(() -> 예외가 발생될떄의 메소드 실행) - 람다식으로 처리해줌
+        assertThatThrownBy(()->allVaccineService.findVaccine(save)).isInstanceOf(IllegalStateException.class);
+    }
+
+
 
 }

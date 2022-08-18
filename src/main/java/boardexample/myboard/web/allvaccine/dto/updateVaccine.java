@@ -1,4 +1,4 @@
-package boardexample.myboard.web.allvaccine;
+package boardexample.myboard.web.allvaccine.dto;
 
 import lombok.Data;
 

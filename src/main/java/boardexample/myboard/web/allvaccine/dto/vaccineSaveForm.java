@@ -1,4 +1,4 @@
-package boardexample.myboard.web.allvaccine;
+package boardexample.myboard.web.allvaccine.dto;
 
 
 import boardexample.myboard.domain.allvaccine.AllVaccine;
@@ -11,6 +11,8 @@ public class vaccineSaveForm {
     private int endVaccine;
     private String title;
 
+    public vaccineSaveForm() {
+    }
 
     public vaccineSaveForm(int startVaccine, int endVaccine, String title) {
         this.startVaccine = startVaccine;
