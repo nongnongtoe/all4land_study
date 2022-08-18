@@ -2,7 +2,7 @@ package boardexample.myboard.web.allvaccine;
 
 import boardexample.myboard.domain.allvaccine.AllVaccine;
 import boardexample.myboard.domain.allvaccine.AllVaccineRepository;
-import boardexample.myboard.web.allvaccine.dto.updateVaccine;
+import boardexample.myboard.web.allvaccine.dto.updateVaccineForm;
 import boardexample.myboard.web.allvaccine.dto.vaccineSaveForm;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -31,7 +31,7 @@ public class allVaccineService {
     }
 
     @Transactional
-    public void updateVaccine(Long id, updateVaccine updateVaccine){
+    public void updateVaccine(Long id, updateVaccineForm updateVaccine){
         AllVaccine vaccine = findVaccine(id);
         vaccine.updateAllVaccine(updateVaccine.getStartVaccine(), updateVaccine.getEndVaccine(),
                 updateVaccine.getTitle());

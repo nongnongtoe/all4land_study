@@ -2,7 +2,7 @@ package boardexample.myboard.web.allvaccine;
 
 
 import boardexample.myboard.domain.allvaccine.AllVaccine;
-import boardexample.myboard.web.allvaccine.dto.updateVaccine;
+import boardexample.myboard.web.allvaccine.dto.updateVaccineForm;
 import boardexample.myboard.web.allvaccine.dto.vaccineSaveForm;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -51,7 +51,7 @@ class allVaccineServiceTest {
         vaccineSaveForm saveForm1 = new vaccineSaveForm(1, 4, "백신1");
         Long save = allVaccineService.save(saveForm1);
         AllVaccine vaccine = allVaccineService.findVaccine(save);
-        updateVaccine update = new updateVaccine(2, 5, "백신up");
+        updateVaccineForm update = new updateVaccineForm(2, 5, "백신up");
         allVaccineService.updateVaccine(save, update);
 
         assertThat(vaccine.getTitle()).isEqualTo(update.getTitle());
