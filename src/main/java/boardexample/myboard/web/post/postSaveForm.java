@@ -4,6 +4,7 @@ import boardexample.myboard.domain.post.Post;
 import boardexample.myboard.domain.user.User;
 import lombok.Builder;
 import lombok.Data;
+import org.springframework.format.annotation.DateTimeFormat;
 
 import java.time.LocalDate;
 
@@ -11,6 +12,8 @@ import java.time.LocalDate;
 public class postSaveForm {
     private String title;
     private String content;
+
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     private LocalDate date;
 
     private User user;
