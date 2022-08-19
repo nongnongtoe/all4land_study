@@ -31,6 +31,12 @@ public class Post {
     @JoinColumn(name = "user_id")
     private User user;
 
+    public void setUser(User user){
+        this.user = user;
+        user.getPosts().add(this);
+    }
+
+
     public void updatePost(String title, String content, LocalDate updateTable) {
         this.title = title;
         this.content = content;

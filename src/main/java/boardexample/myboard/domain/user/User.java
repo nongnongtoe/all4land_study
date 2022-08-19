@@ -2,6 +2,7 @@ package boardexample.myboard.domain.user;
 
 import boardexample.myboard.domain.child.Child;
 import boardexample.myboard.domain.familydiseasehistory.MyFamilyHistory;
+import boardexample.myboard.domain.post.Post;
 import boardexample.myboard.domain.vachine.MyVaccine;
 import lombok.AccessLevel;
 import lombok.Builder;
@@ -40,6 +41,9 @@ public class User {
 
     @OneToMany(mappedBy = "user")
     private List<MyFamilyHistory> myFamilyHistories = new ArrayList<>();
+
+    @OneToMany(mappedBy = "user")
+    private List<Post> posts = new ArrayList<>();
 
     public void updateUser(String password, String phone)
     {

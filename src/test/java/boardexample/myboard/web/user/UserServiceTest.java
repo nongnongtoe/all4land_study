@@ -16,9 +16,6 @@ import static org.assertj.core.api.Assertions.*;
 class UserServiceTest {
 
     @Autowired
-    UserRepository userRepository;
-
-    @Autowired
     UserService userService;
 
     @Test
