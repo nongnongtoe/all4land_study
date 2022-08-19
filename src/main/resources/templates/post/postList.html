@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Title</title>
+</head>
+<body>
+<div class="container">
+    <table class="table table-striped">
+        <thead>
+        <tr>
+            <td style="width : 10%">#</td>
+            <td style="width : 60%;  text-align: center;">제목</td>
+            <td style="width : 15%">작성일</td>
+            <td style="width : 15%">수정일</td>
+        </tr>
+        </thead>
+
+        <tbody>
+        <tr th:each="post : ${posts}">
+            <td th:text="${post.id}"></td>
+            <td><a th:text="${post.title}" th:href="@{/post/{id} (id=${post.id})}"></a></td>
+            <td th:text="${post.date}"></td>
+            <td th:text="${post?.updateTable}"></td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+</body>
+</html>

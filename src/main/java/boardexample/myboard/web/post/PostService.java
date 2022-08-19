@@ -8,6 +8,8 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.List;
+
 @Service
 @RequiredArgsConstructor
 @Transactional(readOnly = true)
@@ -38,6 +40,16 @@ public class PostService {
     public Post findPost(Long postId){
        return postRepository.findById(postId)
                 .orElseThrow(() -> new IllegalStateException("찾는 게시물이 없습니다."));
+    }
+
+    public List<Post> findAllPosts(){
+        return postRepository.findAll();
+    }
+
+    @Transactional
+    public void delete(Long postId){
+        Post post = findPost(postId);
+        postRepository.delete(post);
     }
 
     private void validateUser(User user, Post findPost) {

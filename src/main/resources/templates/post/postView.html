@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Title</title>
+</head>
+<body>
+<div class="container">
+    <table class="table table-striped" th:object="${post}">
+        <tbody>
+        <tr>
+            <th>제목</th>
+            <td th:text="*{title}">내용</td>
+            <th>작성자</th>
+            <td th:text="${user.email}">작성자 이메일</td>
+        </tr>
+        <tr>
+            <th>작성일</th>
+            <td th:text="*{date}"></td>
+            <th>수정일</th>
+            <td th:text="${post?.updateTable}"></td>
+        </tr>
+        <tr>
+            <th>내용</th>
+            <td th:text="*{content}" colspan="3" rowspan="9"></td>
+        </tr>
+        </tbody>
+    </table>
+    <div class="btn-group" style="">
+        <a th:href="@{/post/list}" class="btn btn-primary" role="button">목록</a>
+        <a th:href="@{/post/{id}/edit (id=${post.id})}" class="btn btn-dark" role="button">수정</a>
+        <a th:href="@{/post/{id}/delete (id=${post.id})}" class="btn btn-secondary" role="button">삭제</a>
+    </div>
+
+</div>
+
+</body>
+</html>
