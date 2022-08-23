@@ -27,8 +27,14 @@ public class Child {
         this.name = name;
     }
 
+    public void setUser(User user){
+        this.user =user;
+        user.getChildren().add(this);
+    }
+
     @Builder
-    public Child(String name) {
+    public Child(String name, User user) {
         this.name = name;
+        this.user = user;
     }
 }
