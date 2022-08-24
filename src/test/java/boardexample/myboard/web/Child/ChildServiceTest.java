@@ -38,11 +38,11 @@ class ChildServiceTest {
         Long childId = childService.save(save, request);
         Child child = childService.findOne(childId);
 
-        /* 연관관계 세팅 메서드 확인 테스트
+        //연관관계 세팅 메서드 확인 테스트
         List<Child> children = user.getChildren();
         for (Child child1 : children) {
             System.out.println("child1 = " + child1.getName());
-        }*/
+        }
 
         assertThat(child.getName()).isEqualTo(request.getName());
         assertThat(child.getUser().getId()).isEqualTo(save);
