@@ -24,6 +24,11 @@ public class ChildFamilyHistory {
     @JoinColumn(name = "child_id")
     private Child child;
 
+    public void setChild(Child child){
+        this.child = child;
+        child.getHistoryList().add(this);
+    }
+
     public void updateChildFamilyHistory(String name, String memo, Child child) {
         this.name = name;
         this.memo = memo;

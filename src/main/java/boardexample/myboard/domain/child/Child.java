@@ -1,5 +1,6 @@
 package boardexample.myboard.domain.child;
 
+import boardexample.myboard.domain.familydiseasehistory.ChildFamilyHistory;
 import boardexample.myboard.domain.user.User;
 import boardexample.myboard.domain.vachine.ChildVaccine;
 import lombok.AccessLevel;
@@ -28,6 +29,9 @@ public class Child {
 
     @OneToMany(mappedBy = "child")
     private List<ChildVaccine> vaccineList = new ArrayList<>();
+
+    @OneToMany(mappedBy = "child")
+    private List<ChildFamilyHistory> historyList = new ArrayList<>();
 
 
     public void updateChild(String name){
