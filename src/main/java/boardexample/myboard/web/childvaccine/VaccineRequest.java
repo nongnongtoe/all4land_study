@@ -1,25 +1,29 @@
-package boardexample.myboard.web.vaccine;
+package boardexample.myboard.web.childvaccine;
 
 import boardexample.myboard.domain.child.Child;
 import boardexample.myboard.domain.vachine.ChildVaccine;
 import lombok.Builder;
 import lombok.Data;
+import lombok.NoArgsConstructor;
+import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.validation.constraints.NotBlank;
-import java.sql.Date;
 import java.time.LocalDate;
 
 @Data
+@NoArgsConstructor
 public class VaccineRequest {
 
     @NotBlank
     private String name;
 
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     private LocalDate inoculationDate;
 
     private String memo;
 
     private String hospital;
+
     private Child child;
 
     @Builder

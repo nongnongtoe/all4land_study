@@ -1,24 +1,19 @@
-package boardexample.myboard.web.vaccine;
+package boardexample.myboard.web.childvaccine;
 
 import boardexample.myboard.domain.child.Child;
-import boardexample.myboard.domain.user.User;
 import boardexample.myboard.domain.vachine.ChildVaccine;
 import boardexample.myboard.web.Child.ChildRequest;
 import boardexample.myboard.web.Child.ChildService;
 import boardexample.myboard.web.user.UserSaveForm;
 import boardexample.myboard.web.user.UserService;
-import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.test.annotation.Rollback;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.sql.Date;
 import java.time.LocalDate;
 
 import static org.assertj.core.api.Assertions.*;
-import static org.junit.jupiter.api.Assertions.*;
 
 @SpringBootTest
 @Transactional

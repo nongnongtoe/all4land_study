@@ -1,14 +1,14 @@
-package boardexample.myboard.web.vaccine;
+package boardexample.myboard.web.childvaccine;
 
 import boardexample.myboard.domain.child.Child;
 import boardexample.myboard.domain.child.ChildRepository;
-import boardexample.myboard.domain.user.UserRepository;
 import boardexample.myboard.domain.vachine.ChildVaccine;
 import boardexample.myboard.domain.vachine.ChildVaccineRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Service
@@ -39,8 +39,21 @@ public class ChildVaccineService {
         vaccineRepository.deleteById(vaccineId);
     }
 
-    public List<ChildVaccine> findAll(){
-         return vaccineRepository.findAll();
+
+    public List<VaccineResponse> findByChildAllVaccine(Long childId){
+        Child child = getchild(childId);
+        List<ChildVaccine> childVaccineList = vaccineRepository.findByChild(child);
+        List<VaccineResponse> vaccineResponseList = new ArrayList<>();
+        for (ChildVaccine vaccine : childVaccineList) {
+            VaccineResponse dto = new VaccineResponse(vaccine);
+            vaccineResponseList.add(dto);
+        }
+        return vaccineResponseList;
+    }
+
+    public VaccineResponse findById(Long vaccineId){
+        ChildVaccine vaccine = vaccineRepository.findById(vaccineId).orElseThrow(() -> new IllegalStateException("찾으시려는 백신이 없습니다."));
+        return new VaccineResponse(vaccine);
     }
 
 

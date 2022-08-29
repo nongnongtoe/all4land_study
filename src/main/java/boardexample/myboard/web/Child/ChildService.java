@@ -8,6 +8,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Service
@@ -43,8 +44,27 @@ public class ChildService {
         return child;
     }
 
+    public ChildResponse findById(Long childId) {
+        Child child = childRepository.findById(childId)
+                .orElseThrow(() -> new IllegalStateException("사용할 수 없는 사용자입니다"));
+        return new ChildResponse(child);
+    }
+
     public List<Child> findAllChild(){
         return childRepository.findAll();
+    }
+
+    public List<ChildResponse> findByUserAllChild(Long userId){
+        User user = userRepository.findById(userId).orElseThrow(() -> new IllegalStateException("로그인이 필요합니다."));
+        List<Child> children = childRepository.findByUser(user);
+        List<ChildResponse> childResponseList = new ArrayList<>();
+
+        for(Child child : children){
+            ChildResponse dto = new ChildResponse(child);
+            childResponseList.add(dto);
+        }
+
+        return childResponseList;
     }
 
     public Child findName(String name){
