@@ -8,6 +8,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Service
@@ -30,6 +31,7 @@ public class allVaccineService {
                 .orElseThrow(()->new IllegalStateException("찾으려는 백신이 없습니다."));
     }
 
+
     @Transactional
     public void updateVaccine(Long id, updateVaccineForm updateVaccine){
         AllVaccine vaccine = findVaccine(id);
@@ -41,6 +43,25 @@ public class allVaccineService {
     public void deleteVaccine(Long id){
         AllVaccine vaccine = findVaccine(id);
         allVaccineRepository.delete(vaccine);
+    }
+
+    /**
+     * RestAPI
+     */
+    public allVaccineResponse findById(Long vaccineId){
+        AllVaccine vaccine = findVaccine(vaccineId);
+        return new allVaccineResponse(vaccine);
+    }
+
+    public List<allVaccineResponse> findAllVaccine(){
+        List<AllVaccine> vaccineList = allVaccineRepository.findAll();
+        List<allVaccineResponse> list = new ArrayList<>();
+
+        for (AllVaccine vaccine : vaccineList){
+            allVaccineResponse dto = new allVaccineResponse(vaccine);
+            list.add(dto);
+        }
+        return list;
     }
 
 
