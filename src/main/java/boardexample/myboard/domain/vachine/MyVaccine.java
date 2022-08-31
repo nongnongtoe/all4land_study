@@ -8,6 +8,7 @@ import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import java.sql.Date;
+import java.time.LocalDate;
 
 
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
@@ -20,7 +21,7 @@ public class MyVaccine {
 
     private String name;
 
-    private Date inoculationDate;
+    private LocalDate inoculationDate;
 
     private String memo;
     private String hospital;
@@ -29,8 +30,13 @@ public class MyVaccine {
     @JoinColumn(name = "user_id")
     private User user;
 
+    public void setUser(User user){
+        this.user = user;
+        user.getMyVaccines().add(this);
+    }
 
-    public void updateMyVaccine(String name, Date inoculationDate, String memo, String hospital) {
+
+    public void updateMyVaccine(String name, LocalDate inoculationDate, String memo, String hospital) {
         this.name = name;
         this.inoculationDate = inoculationDate;
         this.memo = memo;
@@ -38,7 +44,7 @@ public class MyVaccine {
     }
 
     @Builder
-    public MyVaccine(String name, Date inoculationDate, String memo, String hospital, User user) {
+    public MyVaccine(String name, LocalDate inoculationDate, String memo, String hospital, User user) {
         this.name = name;
         this.inoculationDate = inoculationDate;
         this.memo = memo;
