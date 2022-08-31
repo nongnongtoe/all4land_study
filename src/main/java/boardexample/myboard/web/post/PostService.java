@@ -8,6 +8,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Service
@@ -17,6 +18,7 @@ public class PostService {
     private final UserRepository userRepository;
     private final PostRepository postRepository;
 
+    //view
     @Transactional
     public Long save(Long userId, postSaveForm form){
         User user = userRepository.findById(userId).orElseThrow(
@@ -52,6 +54,17 @@ public class PostService {
         postRepository.delete(post);
     }
 
+    //restApi
+
+    public PostResponseDto findByPostDto(Long postId){
+        return postRepository.findOnePostDto(postId);
+    }
+
+    public List<PostResponseDto> allPostDto(){
+        return postRepository.findAllPostDto();
+    }
+
+    //
     private void validateUser(User user, Post findPost) {
         if(user.getId() != findPost.getUser().getId()){
             throw new IllegalStateException("작성자와 수정자가 다릅니다.");
