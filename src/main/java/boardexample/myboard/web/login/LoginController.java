@@ -33,7 +33,7 @@ public class LoginController {
             return "login/loginForm";
         }
 
-        User loginUser = loginService.loginUser(user.getEmail(), user.getPassword());
+        User loginUser = loginService.loginUser(user);
 
         if(loginUser==null){
             result.reject("loginFail", "아이디 또는 비밀번호가 맞지 않습니다.");
@@ -51,7 +51,7 @@ public class LoginController {
             return "login/loginForm";
         }
 
-        User loginUser = loginService.loginUser(user.getEmail(), user.getPassword());
+        User loginUser = loginService.loginUser(user);
 
         if(loginUser==null){
             result.reject("loginFail", "아이디 또는 비밀번호가 맞지 않습니다.");

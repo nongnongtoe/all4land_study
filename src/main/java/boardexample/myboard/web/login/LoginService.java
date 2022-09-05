@@ -13,10 +13,11 @@ public class LoginService {
     private final UserRepository userRepository;
 
 
-    public User loginUser(String email, String password){
-        return userRepository.findByEmail(email)
-                .filter(u -> u.getPassword().equals(password))
+    public User loginUser(LoginForm form){
+        return userRepository.findByEmail(form.getEmail())
+                .filter(u -> u.getPassword().equals(form.getPassword()))
                 .orElse(null);
+
     }
 
 

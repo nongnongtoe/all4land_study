@@ -24,7 +24,7 @@ class LoginServiceTest {
     @Autowired
     LoginService loginService;
 
-    @Test
+  /*  @Test
     void 로그인(){
         String email = "7gnsgml7@kakao.com";
         String password = "1806";
@@ -39,5 +39,5 @@ class LoginServiceTest {
         Assertions.assertThat(saveUser.getId()).isEqualTo(loginUser.getId());
 
     }
-
+*/
 }

@@ -1,13 +1,14 @@
 package boardexample.myboard.web.user;
 
 import boardexample.myboard.domain.user.User;
+import lombok.Data;
 import lombok.Getter;
 
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 
-@Getter
+@Data
 public class UserSaveForm {
 
     @Email @NotBlank
@@ -18,6 +19,9 @@ public class UserSaveForm {
 
     @NotNull
     private String phone;
+
+    public UserSaveForm() {
+    }
 
     public UserSaveForm(String email, String password, String phone) {
         this.email = email;
