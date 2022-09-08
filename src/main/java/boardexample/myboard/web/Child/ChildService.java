@@ -20,7 +20,7 @@ public class ChildService {
 
     @Transactional
     public Long save(Long userId,ChildRequest request){
-        User user = userRepository.findById(userId).orElseThrow(() -> new IllegalStateException("로그인이 필요합니다."));
+        User user = userRepository.findById(userId).orElseThrow(() -> new IllegalStateException("해당 사용자가 존재하지 않습니다."));
         request.setUser(user);
         Child saveChild = childRepository.save(request.toEntity());
         saveChild.setUser(request.getUser());
@@ -28,13 +28,18 @@ public class ChildService {
     }
 
     @Transactional
-    public void update(Long childId, String name){
+    public void update(Long childId, String name, Long userId){
+        User loginUser = userRepository.findById(userId).orElseThrow(() -> new IllegalStateException("해당 사용자가 존재하지 않습니다."));
         Child child = findOne(childId);
+        validate(loginUser, child.getUser());
         child.updateChild(name);
     }
 
     @Transactional
-    public void delete(Long childId){
+    public void delete(Long childId, Long userId){
+        User loginUser = userRepository.findById(userId).orElseThrow(() -> new IllegalStateException("해당 사용자가 존재하지 않습니다."));
+        User childUser = findOne(childId).getUser();
+        validate(loginUser, childUser);
         childRepository.deleteById(childId);
     }
 
@@ -69,6 +74,12 @@ public class ChildService {
 
     public Child findName(String name){
         return childRepository.findByName(name);
+    }
+
+    private void validate(User loginUser, User childUser) {
+        if(loginUser.getId() != childUser.getId()){
+            throw new IllegalStateException("로그인 사용자와 작성 사용자가 다릅니다.");
+        }
     }
 
 

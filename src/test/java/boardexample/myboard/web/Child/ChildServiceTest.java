@@ -35,7 +35,7 @@ class ChildServiceTest {
 
         ChildRequest request = new ChildRequest("자식1");
 
-        Long childId = childService.save(save, request);
+        Long childId = childService.save(request);
         Child child = childService.findOne(childId);
 
         //연관관계 세팅 메서드 확인 테스트
@@ -60,7 +60,7 @@ class ChildServiceTest {
 
         ChildRequest request = new ChildRequest("자식1");
 
-        Long childId = childService.save(save, request);
+        Long childId = childService.save(request);
         Child child = childService.findOne(childId);
         String updateName = "수정한 이름입니다.";
         child.updateChild(updateName);
@@ -80,7 +80,7 @@ class ChildServiceTest {
 
         ChildRequest request = new ChildRequest("자식1");
 
-        Long childId = childService.save(save, request);
+        Long childId = childService.save(request);
         childService.delete(childId);
 
         assertThatThrownBy(()->childService.findOne(childId)).isInstanceOf(IllegalStateException.class);

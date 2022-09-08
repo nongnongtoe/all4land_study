@@ -1,10 +1,14 @@
 package boardexample.myboard.web.userfamilyhistory;
 
 
+import boardexample.myboard.domain.user.User;
 import boardexample.myboard.web.dto.Result;
+import boardexample.myboard.web.session.SessionConst;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 import java.util.List;
 
 @RestController
@@ -18,26 +22,34 @@ public class UserFamilyHistoryRestController {
         return userFamilyHistoryService.findById(id);
     }
 
-    @GetMapping("/familyhistorylist/{userId}")
-    public Result findByUserAllHistoryList(@PathVariable("userId") Long userId){
-        List<UserFamilyResponse> familyHistory = userFamilyHistoryService.findByUserAllFamilyHistory(userId);
+    @GetMapping("/familyhistorylist")
+    public Result findByUserAllHistoryList(HttpServletRequest request){
+        HttpSession session = request.getSession();
+        User loginUser = (User) session.getAttribute(SessionConst.LOGIN_USER);
+        List<UserFamilyResponse> familyHistory = userFamilyHistoryService.findByUserAllFamilyHistory(loginUser.getId());
         return new Result(familyHistory);
     }
 
     @PostMapping("/familyhistory")
-    public Long save(@RequestBody UserFamilyRequest request){
-        return userFamilyHistoryService.save(request);
+    public Long save(@RequestBody UserFamilyRequest request, HttpServletRequest servletRequest){
+        HttpSession session = servletRequest.getSession();
+        User loginUser = (User) session.getAttribute(SessionConst.LOGIN_USER);
+        return userFamilyHistoryService.save(loginUser.getId(), request);
     }
 
     @PutMapping("/familyhistory/{familyId}")
-    public void update(@PathVariable("familyId") Long id, @RequestBody UserFamilyRequest request){
-        userFamilyHistoryService.update(id, request);
+    public void update(@PathVariable("familyId") Long id, @RequestBody UserFamilyRequest request, HttpServletRequest servletRequest){
+        HttpSession session = servletRequest.getSession();
+        User loginUser = (User) session.getAttribute(SessionConst.LOGIN_USER);
+        userFamilyHistoryService.update(id, request, loginUser.getId());
     }
 
 
     @DeleteMapping("/familyhistory/{familyId}")
-    public void delete(@PathVariable("familyId") Long id){
-        userFamilyHistoryService.delete(id);
+    public void delete(@PathVariable("familyId") Long id, HttpServletRequest request){
+        HttpSession session = request.getSession();
+        User loginUser = (User) session.getAttribute(SessionConst.LOGIN_USER);
+        userFamilyHistoryService.delete(id, loginUser.getId());
     }
 
 

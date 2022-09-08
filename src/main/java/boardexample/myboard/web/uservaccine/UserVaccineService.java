@@ -28,13 +28,20 @@ public class UserVaccineService {
     }
 
     @Transactional
-    public void update(Long vaccineId, MyVaccineRequest request){
+    public void update(Long vaccineId, MyVaccineRequest request, Long userId){
         MyVaccine myVaccine = getMyVaccine(vaccineId);
+        User myVaccineUser = myVaccine.getUser();
+        User loginUser = userRepository.findById(userId).orElseThrow(() -> new IllegalStateException("해당 사용자 없습니다."));
+        myValidate(myVaccineUser, loginUser);
         myVaccine.updateMyVaccine(request.getName(), request.getInoculationDate(), request.getMemo(), request.getHospital());
     }
 
     @Transactional
-    public void delete(Long vaccineId){
+    public void delete(Long vaccineId, Long userId){
+        MyVaccine myVaccine = getMyVaccine(vaccineId);
+        User myVaccineUser = myVaccine.getUser();
+        User loginUser = userRepository.findById(userId).orElseThrow(() -> new IllegalStateException("해당 사용자 없습니다."));
+        myValidate(myVaccineUser, loginUser);
         myVaccineRepository.deleteById(vaccineId);
     }
 
@@ -53,6 +60,12 @@ public class UserVaccineService {
         }
 
         return vaccineResponses;
+    }
+
+    private void myValidate(User myVaccineUser, User loginUser) {
+        if(myVaccineUser.getId() != loginUser.getId()){
+            throw new IllegalStateException("로그인한 사용자와 작성 사용자가 다릅니다.");
+        }
     }
 
     private MyVaccine getMyVaccine(Long vaccineId) {

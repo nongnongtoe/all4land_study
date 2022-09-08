@@ -19,22 +19,29 @@ public class UserFamilyHistoryService {
     private final MyFamilyHistoryRepository familyHistoryRepository;
 
     @Transactional
-    public Long save(UserFamilyRequest userFamilyRequest){
-        Long userId = userFamilyRequest.getUser().getId();
+    public Long save(Long userId,UserFamilyRequest userFamilyRequest){
         User user = userRepository.findById(userId).orElseThrow(() -> new IllegalStateException("사용자를 찾을수 없습니다."));
+        userFamilyRequest.setUser(user);
         MyFamilyHistory myFamilyHistory = familyHistoryRepository.save(userFamilyRequest.toEntity());
         myFamilyHistory.setUser(user);
         return myFamilyHistory.getId();
     }
 
     @Transactional
-    public void update(Long familyId,UserFamilyRequest userFamilyRequest){
+    public void update(Long familyId,UserFamilyRequest userFamilyRequest, Long userId){
+        User loginUser = userRepository.findById(userId).orElseThrow(() -> new IllegalStateException("사용자를 찾을수 없습니다."));
         MyFamilyHistory myFamilyHistory = getMyFamilyHistory(familyId);
+        User myFamilyHistoryUser = myFamilyHistory.getUser();
+        validate(loginUser, myFamilyHistoryUser);
         myFamilyHistory.updateMyFamilyHistory(userFamilyRequest.getName(), userFamilyRequest.getMemo());
     }
 
     @Transactional
-    public void delete(Long familyId){
+    public void delete(Long familyId, Long userId){
+        User loginUser = userRepository.findById(userId).orElseThrow(() -> new IllegalStateException("사용자를 찾을수 없습니다."));
+        MyFamilyHistory myFamilyHistory = getMyFamilyHistory(familyId);
+        User myFamilyHistoryUser = myFamilyHistory.getUser();
+        validate(loginUser, myFamilyHistoryUser);
         familyHistoryRepository.deleteById(familyId);
     }
 
@@ -54,6 +61,12 @@ public class UserFamilyHistoryService {
         }
 
         return familyResponseList;
+    }
+
+    private void validate(User loginUser, User myFamilyHistoryUser) {
+        if(loginUser.getId() != myFamilyHistoryUser.getId()){
+            throw new IllegalStateException("로그인한 사용자와 요청한 사용자가 다릅니다.");
+        }
     }
 
     private MyFamilyHistory getMyFamilyHistory(Long familyHistoryId) {
