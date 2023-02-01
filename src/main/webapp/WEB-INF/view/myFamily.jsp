@@ -11,12 +11,14 @@
   <script src="/static/js/bootstrap.bundle.js"></script>
   <link rel="stylesheet" href="./css/bootstrap.css">
 
-  <title>우리 아이 백신 홈페이지</title>
+  <title>가족력 페이지</title>
 </head>
 <body>
 <!-- 헤더 영역 -->
 <%@ include file="header.jsp" %>
 <!--콘테이너 영역-->
+<div style="margin-left: 17%; margin-right: 17%">
+  ${historyList}
 <table class="table">
   <thead>
   <tr>
@@ -47,6 +49,9 @@
   </tr>
   </tbody>
 </table>
+</div>
+<button type="button" class="btn btn-primary btn-sm" onclick="location.href='/myFamily/add'" style="margin-left: 73%">글쓰기</button>
+<button type="button" class="btn btn-secondary btn-sm">Need to modify</button>
 <!-- 푸터 영역 -->
 <%@ include file="footer.jsp" %>
 </body>
