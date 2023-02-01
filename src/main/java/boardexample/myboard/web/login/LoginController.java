@@ -48,14 +48,14 @@ public class LoginController {
     public String SessionLogin(@Validated @ModelAttribute("user") LoginForm user, BindingResult result
                                , HttpServletRequest request){
         if(result.hasErrors()){
-            return "login/loginForm";
+            return "loginForm";
         }
 
         User loginUser = loginService.loginUser(user);
 
         if(loginUser==null){
             result.reject("loginFail", "아이디 또는 비밀번호가 맞지 않습니다.");
-            return "login/loginForm";
+            return "loginForm";
         }
 
         HttpSession session = request.getSession();

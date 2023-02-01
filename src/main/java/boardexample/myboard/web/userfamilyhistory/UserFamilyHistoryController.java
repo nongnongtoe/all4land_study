@@ -29,5 +29,12 @@ public class UserFamilyHistoryController {
         return "myFamily";
     }
 
+    @GetMapping("/add")
+    public String UserFamilyAddPage(){
+
+
+        return "myFamilyAdd";
+    }
+
 
 }
