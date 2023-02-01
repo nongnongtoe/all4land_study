@@ -47,8 +47,10 @@
         </ul>
 
         <div class="col-md-3 text-end">
-            <button type="button" class="btn btn-outline-primary me-2" onclick="location.href='/login'">Login</button>
+        <form action="/logout" method="post">
+            <button type="submit" class="btn btn-outline-primary me-2" onclick="location.href='/logout'">LogOut</button>
             <button type="button" class="btn btn-primary" onclick="location.href='/user/add'">Sign-up</button>
+        </form>
         </div>
     </header>
 </div>
