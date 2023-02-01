@@ -41,26 +41,21 @@
 <form class="form-signin">
   <div class="text-center mb-4">
     <img class="mb-4" src="images/logo.jpg" alt="" width="72" height="72">
-    <h1 class="h3 mb-3 font-weight-normal">접종 검색</h1>
-    <p>Build form controls with floating labels via the <code>:placeholder-shown</code> pseudo-element. <a href="https://caniuse.com/css-placeholder-shown">Works in latest Chrome, Safari, Firefox, and IE 10/11 (prefixed).</a></p>
+    <h1 class="h3 mb-3 font-weight-normal">접종 관리</h1>
+    <p>아이의 생일을 통해 다음 접종 목록을 알 수 있습니다</p>
   </div>
 
-  <div class="form-label-group">
-    <input type="email" id="inputEmail" class="form-control" placeholder="Email address" required autofocus>
-    <label for="inputEmail">Email address</label>
+  <div class="form-label-group mx-5">
+    <input type="text" id="inputName" class="form-control" placeholder="아이의 이름" required autofocus>
+    <label for=""></label>
   </div>
 
-  <div class="form-label-group">
-    <input type="password" id="inputPassword" class="form-control" placeholder="Password" required>
-    <label for="inputPassword">Password</label>
+  <div class="form-label-group mx-5" >
+    <input type="date" id="inputBirth" class="form-control" placeholder="아이의 생년월일" required>
   </div>
-
-  <div class="checkbox mb-3">
     <label>
-      <input type="checkbox" value="remember-me"> 기억하기
     </label>
-  </div>
-  <button class="btn btn-lg btn-primary btn-block" type="submit">검색</button>
+  <button class="btn btn-lg btn-primary btn-block ml-5" type="submit">검색</button>
 </form>
 
 
