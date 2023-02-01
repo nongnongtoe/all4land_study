@@ -17,7 +17,7 @@
     </style>
 </head>
 <body>
-<%@ include file="header.jsp" %>
+<%@ include file="Logoutheader.jsp"%>
     <div class="container-sm">
         <h4 class="mb-3">회원 정보 입력</h4>
 
