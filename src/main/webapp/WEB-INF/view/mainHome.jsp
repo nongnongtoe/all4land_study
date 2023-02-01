@@ -14,6 +14,7 @@
         #notice-tab-wrap {
             margin-left: 65%;
             margin-right: 15%;
+            margin-top: -300px;
         }
 
         #notice-tab-wrap {
@@ -73,7 +74,7 @@
 <%@ include file="header.jsp" %>
 <!--콘테이너 영역-->
 <!-- 콘테이너.슬라이드 영역 -->
-<div id="carouselExampleIndicators" class="carousel slide" style="width: 500px; height: 300px; position: relative;  margin-left:300px;"
+<div id="carouselExampleIndicators" class="carousel slide" style="width: 500px; height: 300px;  margin-left:300px;"
      data-ride="carousel">
     <ol class="carousel-indicators" align:
     "center" style="position: absolute; bottom: -50px;">
@@ -103,7 +104,7 @@
         <span class="sr-only">Next</span>
     </button>
 </div>
-<section id="notice-tab-wrap">
+<div id="notice-tab-wrap">
     <!-- 콘테이너.게시판 영역 -->
     <h3 class="sec-tit-1">NOTICE &amp; NEWS</h3>
     <button type="button" class="btn btn-outline-primary">공지사항</button>
@@ -121,7 +122,7 @@
     <div class="tab-container-2">
         <p class="no-write">등록된 내용이 없습니다.</p>
     </div>
-</section>
+</div>
 <!-- 푸터 영역 -->
 <%@ include file="footer.jsp" %>
 </body>
