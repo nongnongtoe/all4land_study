@@ -16,6 +16,5 @@ public class AllVaccineRepositoryJPA {
                 "where a.startVaccine <= :findBirth and a.endVaccine >= :findBirth")
                 .setParameter("findBirth", findBirth)
                 .getResultList();
-
     }
 }

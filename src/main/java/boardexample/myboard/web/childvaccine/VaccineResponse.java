@@ -1,8 +1,7 @@
 package boardexample.myboard.web.childvaccine;
 
 import boardexample.myboard.domain.vachine.ChildVaccine;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import java.time.LocalDate;

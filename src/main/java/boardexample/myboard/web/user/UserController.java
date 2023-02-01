@@ -20,16 +20,15 @@ public class UserController {
 
     @GetMapping("/add")
     public String userAddForm(@ModelAttribute("user") UserSaveForm user){
-        return "user/add";
+        return "addUserForm";
     }
 
     @PostMapping("/add")
     public String userAdd(@Validated @ModelAttribute("user") UserSaveForm user, BindingResult result){
         if(result.hasErrors()){
-            return "user/add";
+            return "addUserForm";
         }
         userService.save(user);
         return "redirect:/";
     }
-
 }

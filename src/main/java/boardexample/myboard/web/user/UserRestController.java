@@ -16,7 +16,7 @@ public class UserRestController {
     private final UserService userService;
 
     @PostMapping
-    public Long join(@RequestBody @Validated UserSaveForm saveForm, BindingResult result){
+    public Long join(UserSaveForm saveForm, BindingResult result){
         if(result.hasErrors()){
             throw new IllegalStateException("오류발생");
         }
