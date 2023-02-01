@@ -17,4 +17,6 @@ public interface PostRepository extends JpaRepository<Post, Long> {
     @Query("select new boardexample.myboard.web.post.PostResponseDto(p.id, p.title, p.content, p.date, p.updateTable, u.email) " +
             "from Post p join p.user u")
     public List<PostResponseDto> findAllPostDto();
+
+    List<Post> findTop3ByOrderByDateDesc();
 }

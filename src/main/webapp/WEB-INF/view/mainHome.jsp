@@ -107,6 +107,7 @@
 <div id="notice-tab-wrap">
     <!-- 콘테이너.게시판 영역 -->
     <h3 class="sec-tit-1">NOTICE &amp; NEWS</h3>
+    ${postList}
     <button type="button" class="btn btn-outline-primary">공지사항</button>
     <button type="button" class="btn btn-outline-primary">새소식</button>
     <div class="tab-container-1" style="margin-top: 10px">

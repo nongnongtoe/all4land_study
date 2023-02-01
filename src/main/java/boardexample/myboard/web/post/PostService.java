@@ -48,6 +48,11 @@ public class PostService {
         return postRepository.findAll();
     }
 
+    public List<Post> findLimitPosts(){
+        return postRepository.findTop3ByOrderByDateDesc();
+    }
+
+
     @Transactional
     public void delete(Long postId){
         Post post = findPost(postId);
@@ -63,6 +68,8 @@ public class PostService {
     public List<PostResponseDto> allPostDto(){
         return postRepository.findAllPostDto();
     }
+
+
 
     //
     private void validateUser(User user, Post findPost) {
