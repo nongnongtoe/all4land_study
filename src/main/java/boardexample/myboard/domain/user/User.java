@@ -52,10 +52,16 @@ public class User {
     }
 
     @Builder
-    public User(String email, String password, String phone) {
+    public User(String email, String password, String phone, Boolean adminCheck) {
         this.email = email;
         this.password = password;
         this.phone = phone;
+
+        if(adminCheck == true){
+            this.role = Role.ADMIN;
+        }else {
+            this.role = Role.USER;
+        }
     }
 
 

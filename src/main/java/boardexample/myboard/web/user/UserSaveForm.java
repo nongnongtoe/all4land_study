@@ -1,5 +1,6 @@
 package boardexample.myboard.web.user;
 
+import boardexample.myboard.domain.user.Role;
 import boardexample.myboard.domain.user.User;
 import lombok.Data;
 import lombok.Getter;
@@ -20,13 +21,17 @@ public class UserSaveForm {
     @NotNull
     private String phone;
 
+    @NotNull
+    private Boolean adminCheck;
+
     public UserSaveForm() {
     }
 
-    public UserSaveForm(String email, String password, String phone) {
+    public UserSaveForm(String email, String password, String phone, Boolean adminCheck) {
         this.email = email;
         this.password = password;
         this.phone = phone;
+        this.adminCheck = adminCheck;
     }
 
     public User toEntity(){
@@ -34,6 +39,7 @@ public class UserSaveForm {
                 .email(email)
                 .password(password)
                 .phone(phone)
+                .adminCheck(adminCheck)
                 .build();
     }
 

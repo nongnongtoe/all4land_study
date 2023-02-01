@@ -49,8 +49,13 @@
                 <div class="filed-error" th:errors="*{phone}"></div>
             </div>
 
+
             <hr class="my-4">
 
+            <div>
+                <input type="checkbox" id="validCheck" th:field="*{adminCheck}" class="form-check-input">
+                <label for="validCheck">관리자 권한 체크</label>
+            </div>
 
             <div class="row">
                 <div class="col">
