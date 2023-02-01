@@ -15,7 +15,7 @@
     <footer class="row row-cols-1 row-cols-sm-2 row-cols-md-5 py-5 my-5 border-top">
         <div class="col mb-3">
             <a href="www.naver.com" class="d-flex align-items-center mb-3 link-dark text-decoration-none">
-                <img src="images/logo.jpg" alt="My Image" width="20%" height="20%">
+                <img src="/images/logo.jpg" alt="My Image" width="20%" height="20%">
 
             </a>
             <p class="text-muted">&copy; 2023 Company, Inc. </p>

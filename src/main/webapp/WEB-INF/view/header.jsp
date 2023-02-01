@@ -23,7 +23,7 @@
                 <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true"
                    aria-expanded="false">가족력</a>&nbsp;&nbsp;&nbsp;
                 <div class="dropdown-menu">
-                    <a class="dropdown-item" href="#">내 가족력</a>&nbsp;&nbsp;&nbsp;
+                    <a class="dropdown-item" href="/myFamily">내 가족력</a>&nbsp;&nbsp;&nbsp;
                     <a class="dropdown-item" href="#">need to modify</a>
                 </div>
             </li>
@@ -48,7 +48,7 @@
 
         <div class="col-md-3 text-end">
             <button type="button" class="btn btn-outline-primary me-2">Login</button>
-            <button type="button" class="btn btn-primary">Sign-up</button>
+            <button type="button" class="btn btn-primary" onclick="location.href='/user/add'">Sign-up</button>
         </div>
     </header>
 </div>

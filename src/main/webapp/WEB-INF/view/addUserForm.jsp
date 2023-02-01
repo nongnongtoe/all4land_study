@@ -80,6 +80,7 @@ $(document).ready(function() {
                 let ok = response.ok;
                 if(ok){
                     console.log("회원가입 성공!");
+                    location.href='/';
                 }else{
                     alert("이미 회원가입된 아이디가 있습니다");
                 }
