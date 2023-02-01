@@ -18,7 +18,7 @@
         </a>
 
         <ul class="nav nav-tabs">
-            <li class="nav-item"><a href="#" class="nav-link px-2 link-secondary">Home</a></li>&nbsp;&nbsp;&nbsp;
+            <li class="nav-item"><a href="/" class="nav-link px-2 link-secondary">Home</a></li>&nbsp;&nbsp;&nbsp;
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true"
                    aria-expanded="false">가족력</a>&nbsp;&nbsp;&nbsp;

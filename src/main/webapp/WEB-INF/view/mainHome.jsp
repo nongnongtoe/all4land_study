@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page language="java" contentType="text/html; charset=utf-8" pageEncoding="utf-8"%>
 <!DOCTYPE html>
 <html lang="en">
@@ -107,16 +108,14 @@
 <div id="notice-tab-wrap">
     <!-- 콘테이너.게시판 영역 -->
     <h3 class="sec-tit-1">NOTICE &amp; NEWS</h3>
-    ${postList}
     <button type="button" class="btn btn-outline-primary">공지사항</button>
     <button type="button" class="btn btn-outline-primary">새소식</button>
     <div class="tab-container-1" style="margin-top: 10px">
-        <ul class="list-group">
-            <li class="list-group-item" style="padding-bottom: 10px; padding-left: 10px"><a href="#">공지사항 관련된 내용입니다.</a><span>2017.08.07 &nbsp;</span>
-            </li>
-            <li class="list-group-item" style="padding-bottom: 50px; padding-left: 10px"><a href="#">공지사항 관련된 내용입니다.</a><span>2017.08.07 &nbsp;</span>
-            </li>
-        </ul>
+    <ul>
+        <c:forEach items="${postList}" var="postList">
+        <li>제목 : ${postList.title} 날짜 : ${postList.date}</li>
+        </c:forEach>
+    </ul>
         <p class="icon-more"><a href="#">more</a></p>
     </div>
     <br>

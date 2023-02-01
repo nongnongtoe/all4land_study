@@ -19,7 +19,7 @@ public class allVaccineController {
 
     @GetMapping("/add")
     public String addVaccineForm(@ModelAttribute("vaccine") vaccineSaveForm saveForm){
-        return "vaccine/vaccineSave";
+        return "vaccineAddForm";
     }
 
     @PostMapping("/add")
@@ -33,7 +33,7 @@ public class allVaccineController {
     public String vaccineList(Model model){
         List<AllVaccine> vaccines = vaccineService.vaccineList();
         model.addAttribute("vaccines", vaccines);
-        return "vaccine/vaccineList";
+        return "vaccines";
     }
     @GetMapping("/{vaccineId}/edit")
     public String updateForm(@PathVariable("vaccineId")Long id

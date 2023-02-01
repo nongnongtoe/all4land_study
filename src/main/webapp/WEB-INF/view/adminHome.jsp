@@ -108,7 +108,7 @@
     <!-- 콘테이너.게시판 영역 -->
     <h3 class="sec-tit-1">관리자 기능</h3>
     <button type="button" class="btn btn-outline-primary" onclick="location.href='/post/add'">공지사항 작성</button>
-    <button type="button" class="btn btn-outline-primary">백신 입력</button>
+    <button type="button" class="btn btn-outline-primary" onclick="location.href='/vaccine/list'">백신 입력</button>
 </div>
 <!-- 푸터 영역 -->
 <%@ include file="footer.jsp" %>

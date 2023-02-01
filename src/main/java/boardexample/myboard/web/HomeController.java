@@ -63,8 +63,8 @@ public class HomeController {
             model.addAttribute("user", loginUser);
             return "adminHome";
         }else{
-            List<Post> allPosts = postService.findLimitPosts();
-            model.addAttribute("postList", allPosts);
+            List<Post> limitPosts = postService.findLimitPosts();
+            model.addAttribute("postList", limitPosts);
             return "mainHome";
         }
 
