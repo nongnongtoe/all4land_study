@@ -15,12 +15,13 @@ public class WebConfig implements WebMvcConfigurer {
         registry.addInterceptor(new LogInterceptor())
                 .order(1)
                 .addPathPatterns("/**") // 모든 경로에 적용한다는 의미
-                .excludePathPatterns("/css/**", "/*.ico", "/error");
+                .excludePathPatterns("/js/**","/css/**", "/*.ico", "/error", "/*.png", "/*.jpg");
 
-        registry.addInterceptor(new LoginCheckInterceptor())
+        /*registry.addInterceptor(new LoginCheckInterceptor())
                 .order(2)
                 .addPathPatterns("/**")
-                .excludePathPatterns("/", "/user/add", "/login", "/css/**", "/*.ico", "/error", "/userapi", "/loginapi");
+                .excludePathPatterns("/", "/user/add", "/login", "/css/**", "/*.png", "/*.jpg",
+                            "/*.ico", "/error", "/userapi", "/loginapi");*/
     }
 
 
