@@ -22,6 +22,7 @@ public class HomeController {
         return "home";
     }
 
+
     //@GetMapping("/")
     public String loginHome(HttpServletRequest request, Model model){
 
@@ -49,13 +50,12 @@ public class HomeController {
         log.info("확인");
         if(loginUser == null){
             return "index";
-        }
-
-        if(loginUser.getRole() == Role.ADMIN){
+        }else if(loginUser.getRole() == Role.ADMIN){
             model.addAttribute("user", loginUser);
             return "mainHome";
+        }else{
+            return "aaaaaaa";
         }
 
-        return "index";
     }
 }

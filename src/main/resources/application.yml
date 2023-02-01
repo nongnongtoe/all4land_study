@@ -17,7 +17,6 @@ spring :
       suffix : .jsp
 
 
-
 logging.level:
   org.hibernate.SQL : debug
 
