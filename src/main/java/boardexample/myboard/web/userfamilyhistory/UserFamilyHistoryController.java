@@ -7,6 +7,8 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import javax.servlet.http.HttpServletRequest;
@@ -36,5 +38,13 @@ public class UserFamilyHistoryController {
         return "myFamilyAdd";
     }
 
+    @PostMapping("/add")
+    public String UserFamilySave(@ModelAttribute("form")UserFamilyRequest form, HttpServletRequest request){
+        HttpSession session = request.getSession();
+        User loginUser = (User) session.getAttribute(SessionConst.LOGIN_USER);
+
+        userFamilyHistoryService.save(loginUser.getId(), form);
+        return "redirect:/";
+    }
 
 }

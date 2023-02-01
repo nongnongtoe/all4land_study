@@ -22,7 +22,7 @@ public class PostController {
 
     @GetMapping("/add")
     public String postAddForms(@ModelAttribute("form")postSaveForm form){
-        return "post/postAddForm";
+        return "postAddForm";
     }
 
     @PostMapping("/add")

@@ -52,9 +52,9 @@ public class HomeController {
             return "index";
         }else if(loginUser.getRole() == Role.ADMIN){
             model.addAttribute("user", loginUser);
-            return "mainHome";
+            return "adminHome";
         }else{
-            return "aaaaaaa";
+            return "mainHome";
         }
 
     }
