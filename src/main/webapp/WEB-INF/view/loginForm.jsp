@@ -18,7 +18,7 @@
 </head>
 <body>
 <%@ include file="Logoutheader.jsp"%>
-    <div class="container-sm">
+    <div class="container-sm w-25 text-center">
         <h4 class="mb-3">회원 정보 입력</h4>
 
         <form action="/login" method="post">
@@ -27,12 +27,12 @@
                 <input type="text" name="email"  class="form-control">
             </div>
 
-            <div>
+            <div >
                 <label for="password">비밀번호</label>
                 <input type="password" name="password" class="form-control">
             </div>
 
-            <div class="d-grid gap-2">
+            <div class="d-grid gap-2 mt-3">
             <button class="btn btn-primary" type="submit">로그인</button>
             <button type="button" class="btn btn-dark" onclick="location.href='/'">취소</button>
             </div>
