@@ -24,7 +24,7 @@
                    aria-expanded="false">가족력</a>&nbsp;&nbsp;&nbsp;
                 <div class="dropdown-menu">
                     <a class="dropdown-item" href="/myFamily">내 가족력</a>&nbsp;&nbsp;&nbsp;
-                    <a class="dropdown-item" href="#">need to modify</a>
+                    <a class="dropdown-item" href="/children">내 아이</a>
                 </div>
             </li>
             <li class="nav-item dropdown">
