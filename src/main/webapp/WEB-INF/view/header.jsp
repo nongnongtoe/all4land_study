@@ -29,13 +29,13 @@
             </li>
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true"
-                   aria-expanded="false">Vaccin</a>&nbsp;&nbsp;&nbsp;
+                   aria-expanded="false">백신</a>&nbsp;&nbsp;&nbsp;
                 <div class="dropdown-menu">
-                    <a class="dropdown-item" href="#">need to modify</a>&nbsp;&nbsp;&nbsp;
+                    <a class="dropdown-item" href="/vaccine/search">백신검색</a>&nbsp;&nbsp;&nbsp;
                     <a class="dropdown-item" href="#">need to modify</a>
                 </div>
             </li>
-            <li class="nav-item"><a href="#" class="nav-link px-2 link-dark">Community</a></li>
+            <li class="nav-item"><a href="/post/list" class="nav-link px-2 link-dark">공지사항</a></li>
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true"
                    aria-expanded="false">관련 사이트</a>&nbsp;&nbsp;&nbsp;

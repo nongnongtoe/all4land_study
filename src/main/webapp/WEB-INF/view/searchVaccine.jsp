@@ -19,20 +19,29 @@
     <p>아이의 생일을 통해 다음 접종 목록을 알 수 있습니다</p>
   </div>
 
-  <div class="form-label-group w-25 text-center" style= "float:none; margin:0 auto" align="center">
-    <input type="text" id="inputName" class="form-control" placeholder="아이의 이름" required autofocus>
-    <label for=""></label>
-  </div>
 
   <div class="form-label-group w-25 text-center" style= "float:none; margin:0 auto" align="center">
-    <input type="date" id="inputBirth" class="form-control "  placeholder="아이의 생년월일" required autofocus>
-  </div>
-  <div class="text-center">
-  <button class="btn btn-lg btn-primary btn-block  my-4  w-25 " style= "float:none; margin:0 auto" align="center" type="button">검색</button>
+    <input type="date" id="inputBirth" name="birth" class="form-control "  placeholder="아이의 생년월일" required autofocus>
   </div>
 </form>
+
+<div class="text-center">
+<button id="searchBtn"class="btn btn-lg btn-primary btn-block  my-4  w-25 " style= "float:none; margin:0 auto" align="center" type="button">검색</button>
+</div>
+
 </div>
 
 <%@ include file="footer.jsp"%>
 </body>
+
+<script>
+$(document).ready(function() {
+    $(document).on("click", "button[id='searchBtn']", function(){
+
+
+
+    })
+})
+
+</script>
 </html>

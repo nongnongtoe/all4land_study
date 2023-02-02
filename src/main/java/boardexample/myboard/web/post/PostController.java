@@ -39,7 +39,7 @@ public class PostController {
     public String postList(Model model){
         List<Post> allPosts = postService.findAllPosts();
         model.addAttribute("posts", allPosts);
-        return "post/postList";
+        return "postList";
     }
 
     @GetMapping("/{postId}")
