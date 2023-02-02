@@ -10,6 +10,12 @@
     <title>Title</title>
 
     <style>
+        @media (min-width: 300px) {
+          .container {
+            width: 300px;
+          }
+        }
+
         .field-error {
             border-color: #dc3545;
             color: #dc3545;
@@ -18,7 +24,7 @@
 </head>
 <body>
 <%@ include file="header.jsp"%>
-    <div class="container-sm">
+    <div class="container">
         <h4 class="mb-3">백신 입력</h4>
 
         <form action="/vaccine/add" method="post">
