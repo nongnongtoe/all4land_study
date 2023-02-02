@@ -18,7 +18,7 @@
 </head>
 <body>
 <%@ include file="Logoutheader.jsp"%>
-    <div class="container-sm w-25 text-center">
+    <div class="container-sm w-25">
         <h4 class="mb-3">회원 정보 입력</h4>
 
         <form action="/login" method="post">
