@@ -17,6 +17,11 @@ import java.util.List;
 public class allVaccineController {
     private final allVaccineService vaccineService;
 
+    @GetMapping("/search")
+    public String searchVaccinePage(Model model){
+        return "searchVaccine";
+    }
+
     @GetMapping("/add")
     public String addVaccineForm(@ModelAttribute("vaccine") vaccineSaveForm saveForm){
         return "vaccineAddForm";

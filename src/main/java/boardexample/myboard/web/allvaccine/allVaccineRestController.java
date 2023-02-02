@@ -21,7 +21,7 @@ public class allVaccineRestController {
     }
 
     @GetMapping("/searchVaccine")
-    public Result findBySearchVaccineList(@RequestBody RequestVaccineDto requestVaccineDto){
+    public Result findBySearchVaccineList(RequestVaccineDto requestVaccineDto){
         List<allVaccineResponse> vaccineList = vaccineService.findBySearchVaccineList(requestVaccineDto);
         return new Result<>(vaccineList);
     }
