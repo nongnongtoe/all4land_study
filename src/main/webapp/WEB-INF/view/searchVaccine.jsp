@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/css/bootstrap.css">
     <title>백신 검색</title>
-
+    <script src="/js/jquery.min.js"></script>
 <body>
 <%@ include file="header.jsp"%>
 
@@ -37,10 +37,15 @@
 <script>
 $(document).ready(function() {
     $(document).on("click", "button[id='searchBtn']", function(){
-
-
-
-    })
+        var formData = new FormData();
+        formData.append('birth', $("#inputBirth").val());
+        fetch('/vaccineApi/searchVaccine',{
+                        method : 'post',
+                        cache: 'no-cache',
+                        body : formData
+        }).then(response =>  response.json())
+        .then(data => { console.log(data)})
+    });
 })
 
 </script>
