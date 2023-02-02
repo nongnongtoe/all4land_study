@@ -35,7 +35,9 @@
 </body>
 
 <script>
+let vaccineData;
 $(document).ready(function() {
+
     $(document).on("click", "button[id='searchBtn']", function(){
         var formData = new FormData();
         formData.append('birth', $("#inputBirth").val());
@@ -44,7 +46,9 @@ $(document).ready(function() {
                         cache: 'no-cache',
                         body : formData
         }).then(response =>  response.json())
-        .then(data => { console.log(data)})
+        .then(data => {
+        console.log(data);
+        vaccineData = data})
     });
 })
 

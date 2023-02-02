@@ -52,11 +52,11 @@ public class allVaccineController {
         return "vaccine/vaccineEdit";
     }
 
-    @PostMapping("/{vaccineId}/edit")
-    public String updateVaccine(@PathVariable("vaccineId")Long id
-            , @ModelAttribute("vaccine")updateVaccineForm vaccineForm){
-        vaccineService.updateVaccine(id, vaccineForm);
-        return "redirect:/vaccine/list";
+    @PostMapping("/edit")
+    public String updateVaccine(
+             @ModelAttribute("vaccine")updateVaccineForm vaccineForm){
+        vaccineService.updateVaccine(vaccineForm);
+        return "redirect:list";
     }
 
     @GetMapping("/{vaccineId}/delete")

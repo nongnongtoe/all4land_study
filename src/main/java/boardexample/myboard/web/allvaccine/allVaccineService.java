@@ -36,7 +36,8 @@ public class allVaccineService {
 
 
     @Transactional
-    public void updateVaccine(Long id, updateVaccineForm updateVaccine){
+    public void updateVaccine(updateVaccineForm updateVaccine){
+        Long id = updateVaccine.getId();
         AllVaccine vaccine = findVaccine(id);
         vaccine.updateAllVaccine(updateVaccine.getStartVaccine(), updateVaccine.getEndVaccine(),
                 updateVaccine.getTitle());
