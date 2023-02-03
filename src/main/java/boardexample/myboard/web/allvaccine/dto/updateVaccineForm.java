@@ -4,6 +4,7 @@ import lombok.Data;
 
 @Data
 public class updateVaccineForm {
+    private Long id;
     private int startVaccine;
     private int endVaccine;
     private String title;

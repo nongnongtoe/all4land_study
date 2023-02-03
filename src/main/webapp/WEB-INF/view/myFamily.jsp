@@ -44,10 +44,9 @@
 
     </table>
 </div>
-<button type="button" class="btn btn-primary btn-sm" onclick="location.href='/myFamily/add'" style="margin-left: 73%">
+<button type="button" class="btn btn-primary btn-sm" onclick="location.href='/myFamily/add'" style="margin-left: 80%">
     글쓰기
 </button>
-<button type="button" class="btn btn-secondary btn-sm">Need to modify</button>
 <!-- 푸터 영역 -->
 <%@ include file="footer.jsp" %>
 </body>
