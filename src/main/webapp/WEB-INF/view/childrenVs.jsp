@@ -10,7 +10,7 @@
             integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p"
             crossorigin="anonymous"></script>
     <script src="/js/bootstrap.bundle.js"></script>
-    <link rel="stylesheet" href="/bootstrap.css">
+    <link rel="stylesheet" href="/css/bootstrap.css">
 
     <title>내 아이 페이지</title>
 </head>
@@ -18,11 +18,12 @@
 <!-- 헤더 영역 -->
 <%@ include file="header.jsp" %>
 <!--콘테이너 영역-->
+
 <c:forEach items="${child}" var="child">
     <div style="margin-left: 40%; margin-right: 40%">
         <!--아이 삭제 버튼-->
         <button type="button" class="close" aria-label="Close"
-                onclick="location.href='childrenHistory/delete/${child.id}'">
+                onclick="location.href='childrenVs/delete/${child.id}'">
             <span aria-hidden="true">&times;</span>
         </button>
         <a href="/childrenHistory/${child.id}">
@@ -31,7 +32,7 @@
         </a>
     </div>
 </c:forEach>
-<button type="button" class="btn btn-primary btn-sm" onclick="location.href='/childrenHs/add'" style="margin-left: 80%">
+<button type="button" class="btn btn-primary btn-sm" onclick="location.href='/childrenVs/add'" style="margin-left: 80%">
     글쓰기
 </button>
 

@@ -12,7 +12,7 @@
     <script src="/js/bootstrap.bundle.js"></script>
     <link rel="stylesheet" href="/css/bootstrap.css">
 
-    <title>공지사항</title>
+    <title>내 아이 게시판</title>
 </head>
 <body>
 <!-- 헤더 영역 -->
@@ -24,27 +24,22 @@
         <tr>
             <th scope="col">#</th>
             <th scope="col">Title</th>
-            <th scope="col">Content</th>
-            <th scope="col">Handle</th>
         </tr>
         </thead>
         <tbody>
-        <c:forEach items="${posts}" var="posts">
+        <c:forEach items="${historyList}" var="historyList">
             <tr>
-                <td>${posts.title}</td>
-                <td>${posts.content}</td>
-                <td>${posts.date}</td>
-                <td>
-                    <button type="button" class="btn btn-primary">modify</button>
-                    <button type="button" class="btn btn-primary">delete</button>
-                </td>
+                <td>${historyList.name}</td>
+                <td>${historyList.memo}</td>
             </tr>
         </c:forEach>
         </tbody>
-
     </table>
 </div>
-<button type="button" class="btn btn-secondary btn-sm">Need to modify</button>
+${childId}
+<button type="button" class="btn btn-primary btn-sm" onclick="location.href='/childrenHistory/${childId}/add'" style="margin-left: 80%">
+    글쓰기
+</button>
 <!-- 푸터 영역 -->
 <%@ include file="footer.jsp" %>
 </body>

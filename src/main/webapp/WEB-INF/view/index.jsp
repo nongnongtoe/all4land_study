@@ -12,7 +12,7 @@
             integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p"
             crossorigin="anonymous"></script>
     <script src="/js/bootstrap.bundle.js"></script>
-    <link rel="stylesheet" href="./css/bootstrap.css">
+    <link rel="stylesheet" href="/css/bootstrap.css">
     <style>
         #notice-tab-wrap {
             margin-left: 65%;

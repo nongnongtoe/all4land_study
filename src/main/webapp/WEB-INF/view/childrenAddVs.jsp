@@ -11,21 +11,21 @@
     <script src="/js/bootstrap.bundle.js"></script>
     <link rel="stylesheet" href="/css/bootstrap.css">
 
-    <title>가족력 글쓰기 페이지</title>
+    <title>내 아이 글쓰기 페이지</title>
 </head>
 <!-- 헤더 영역 -->
 <%@ include file="header.jsp" %>
 <!--콘테이너 영역-->
-<form action="/myFamily/add" method="post">
+<form action="/children/add" method="post">
+    <div class="text-center">
+        <img src="/images/logo.jpg" class="rounded" alt="...">
+    </div>
     <div class="form-group" style="margin-left: 17%; margin-right: 17%">
-        <input class="form-control" type="text" name="name" placeholder="제목을 입력하세요.">
+        <input class="form-control" type="text" name="name" placeholder="아이의 이름을 입력하세요.">
     </div>
     <br>
-    <div class="form-group" style="margin-right: 17%; margin-left: 17%;">
-        <textarea class="form-control" name="memo" placeholder="내용을 입력하세요." id="exampleFormControlTextarea1" rows="20"></textarea>
-    </div>
-    <button type="submit" class="btn btn-primary btn-sm" style="margin-left: 77%">글쓰기</button>
-    <button type="reset" class="btn btn-secondary btn-sm" onclick="location.href='/myFamily'">취소</button>
+    <button type="submit" class="btn btn-primary btn-sm" style="margin-left: 70%">입력하기</button>
+    <button type="reset" class="btn btn-secondary btn-sm" onclick="location.href='/childrenVs'">취소</button>
 </form>
 <!-- 푸터 영역 -->
 <%@ include file="footer.jsp" %>
