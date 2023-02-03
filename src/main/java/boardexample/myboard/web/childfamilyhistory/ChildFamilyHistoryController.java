@@ -10,6 +10,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import javax.servlet.http.HttpServletRequest;
@@ -34,7 +35,27 @@ public class ChildFamilyHistoryController {
 
     @GetMapping("/{childId}/add")
     public String createChildHistoryAddPage(@PathVariable("childId") Long childId, Model model){
-
+        model.addAttribute("childId", childId);
         return "childrenHistoryAdd";
+    }
+
+    @PostMapping("/{childId}/add")
+    public String createChildHistoryAdd(@PathVariable("childId") Long childId, ChildFamilyHistoryRequest request,Model model){
+        childFamilyHistoryService.save(childId, request);
+        return "childrenHistoryAdd";
+    }
+
+    @PostMapping("/{childHistoryId}/edit")
+    public String updateChildHistory(@PathVariable("childHistoryId") Long childHistoryId, ChildFamilyHistoryRequest request){
+
+        childFamilyHistoryService.update(childHistoryId, request);
+        return "redirect:/";
+    }
+
+    @GetMapping("/{childHistoryId}/delete")
+    public String deleteChildHistory(@PathVariable("childHistoryId") Long childHistoryId){
+
+        childFamilyHistoryService.delete(childHistoryId);
+        return "redirect:/";
     }
 }
