@@ -12,7 +12,7 @@
     <script src="/js/bootstrap.bundle.js"></script>
     <link rel="stylesheet" href="/css/bootstrap.css">
 
-    <title>가족력 페이지</title>
+    <title>백신 입력 페이지</title>
 </head>
 <body>
 <!-- 헤더 영역 -->

@@ -19,18 +19,22 @@
 <%@ include file="header.jsp" %>
 <!--콘테이너 영역-->
 
-    <c:forEach items="${child}" var="child">
-<div style="margin-left: 40%; margin-right: 40%">
-        <button type="button" class="close" aria-label="Close">
+<c:forEach items="${child}" var="child">
+    <div style="margin-left: 40%; margin-right: 40%">
+        <!--아이 삭제 버튼-->
+        <button type="button" class="close" aria-label="Close"
+                onclick="location.href='childrenHistory/delete/${child.id}'">
             <span aria-hidden="true">&times;</span>
         </button>
-        <img src="images/logo.jpg" alt="..." class="img-thumbnail">
-        <p align="center" class="font-weight-bold">${child.name}</p>
-</div>
-    </c:forEach>
-        <button type="button" class="btn btn-primary btn-sm" onclick="location.href='/children/add'"style="margin-left: 80%">
-            글쓰기
-        </button>
+        <a href="/childrenHistory/${child.id}">
+            <img src="images/logo.jpg" alt="..." width="350" height="350" class="img-thumbnail">
+            <p align="center" class="font-weight-bold">${child.name}</p>
+        </a>
+    </div>
+</c:forEach>
+<button type="button" class="btn btn-primary btn-sm" onclick="location.href='/children/add'" style="margin-left: 80%">
+    글쓰기
+</button>
 
 <!-- 푸터 영역 -->
 <%@ include file="footer.jsp" %>
