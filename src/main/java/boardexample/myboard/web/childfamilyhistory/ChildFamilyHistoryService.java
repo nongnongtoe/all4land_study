@@ -20,7 +20,7 @@ public class ChildFamilyHistoryService {
     private final ChildFamilyHistoryRepository familyHistoryRepository;
 
     @Transactional
-    public Long save(Long childId, ChildFamilyHistoryRequest request){
+    public Long save(Long childId, ChildFamilyHistoryRequest request) {
         Child child = childRepository.findById(childId).orElseThrow(() -> new IllegalStateException("자식을 찾을수없습니다."));
         request.setChild(child);
         ChildFamilyHistory history = familyHistoryRepository.save(request.toEntity());
@@ -29,26 +29,26 @@ public class ChildFamilyHistoryService {
     }
 
     @Transactional
-    public void update(Long id, ChildFamilyHistoryRequest request){
+    public void update(Long id, ChildFamilyHistoryRequest request) {
         ChildFamilyHistory history = findOne(id);
         history.updateChildFamilyHistory(request.getName(), request.getMemo(), request.getChild());
     }
 
     @Transactional
-    public void delete(Long id){
+    public void delete(Long id) {
         familyHistoryRepository.deleteById(id);
     }
 
-    public ChildFamilyHistoryResponse findById(Long id){
+    public ChildFamilyHistoryResponse findById(Long id) {
         ChildFamilyHistory history = familyHistoryRepository.findById(id).orElseThrow(() -> new IllegalStateException("찾으려는 게시물이 없습니다."));
         return new ChildFamilyHistoryResponse(history);
     }
 
-    public ChildFamilyHistory findOne(Long id){
+    public ChildFamilyHistory findOne(Long id) {
         return familyHistoryRepository.findById(id).orElseThrow(() -> new IllegalStateException("찾으려는 게시물이 없습니다."));
     }
 
-    public List<ChildFamilyHistoryResponse> findByChildAllHistory(){
+    public List<ChildFamilyHistoryResponse> findByChildAllHistory() {
         List<ChildFamilyHistory> all = familyHistoryRepository.findAll();
         List<ChildFamilyHistoryResponse> responseList = new ArrayList<>();
         for (ChildFamilyHistory history : all) {
@@ -59,4 +59,11 @@ public class ChildFamilyHistoryService {
         return responseList;
     }
 
+    public List<ChildFamilyHistory> findByChildIdHistoryList(Long childId){
+        Child child = childRepository.findById(childId).orElseThrow(() -> new IllegalStateException("자식을 찾을수없습니다."));
+
+        List<ChildFamilyHistory> childList = familyHistoryRepository.findByChild(child);
+
+        return childList;
+    }
 }

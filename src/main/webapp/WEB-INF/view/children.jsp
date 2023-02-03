@@ -24,9 +24,8 @@
         <button type="button" class="close" aria-label="Close">
             <span aria-hidden="true">&times;</span>
         </button>
-        <img src="images/pig${child.id}.jpg" alt="..." class="img-thumbnail">
-        <p align="center" class="font-weight-bold">${child.id}.
-            ${child.name}</p>
+        <img src="images/logo.jpg" alt="..." class="img-thumbnail">
+        <p align="center" class="font-weight-bold">${child.name}</p>
 </div>
     </c:forEach>
         <button type="button" class="btn btn-primary btn-sm" onclick="location.href='/children/add'"style="margin-left: 80%">
