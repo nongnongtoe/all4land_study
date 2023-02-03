@@ -26,7 +26,7 @@
             <span aria-hidden="true">&times;</span>
         </button>
         <a href="/childrenHistory/${child.id}">
-            <img src="images/logo.jpg" alt="..." width="350" height="350" class="img-thumbnail">
+            <img src="images/pig${child.id}.jpg" alt="..." width="350" height="350" class="img-thumbnail">
             <p align="center" class="font-weight-bold">${child.name}</p>
         </a>
     </div>
