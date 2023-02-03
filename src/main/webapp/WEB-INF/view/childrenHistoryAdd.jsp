@@ -17,7 +17,7 @@
 <%@ include file="header.jsp" %>
 <!--콘테이너 영역-->
 ${childId}
-<form action="/childrenHistory/${childId}/add" method="posct">
+<form action="/childrenHistory/${childId}/add" method="post">
     <div class="form-group" style="margin-left: 17%; margin-right: 17%">
         <input class="form-control" type="text" name="name" placeholder="제목을 입력하세요.">
     </div>

@@ -27,16 +27,17 @@
         </tr>
         </thead>
         <tbody>
-        <c:forEach items="${child}" var="historyList">
+        <c:forEach items="${historyList}" var="historyList">
             <tr>
-                <td>${child.id}</td>
-                <td>${child.name}</td>
+                <td>${historyList.name}</td>
+                <td>${historyList.memo}</td>
             </tr>
         </c:forEach>
         </tbody>
     </table>
 </div>
-<button type="button" class="btn btn-primary btn-sm" onclick="location.href='/childrenHistoryAdd'" style="margin-left: 80%">
+${childId}
+<button type="button" class="btn btn-primary btn-sm" onclick="location.href='/childrenHistory/${childId}/add'" style="margin-left: 80%">
     글쓰기
 </button>
 <!-- 푸터 영역 -->
