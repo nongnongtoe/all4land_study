@@ -51,9 +51,8 @@
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-        <form id="testForm" method="posts" action="/posts/edit" name="posts">
+        <form id="testForm" method="post" action="/post/edit" name="posts">
            <div class="mb-3">
-               <label for="posts-id" class="col-form-label">목록:</label>
                <input type="number" class="form-control" id="posts-id" name="id" readonly>
            </div>
 
@@ -63,11 +62,11 @@
           </div>
           <div class="mb-3">
             <label for="posts-content" class="col-form-label">내용:</label>
-            <input type="text" class="form-control" id="posts-content" name="contentPosts">
+            <input type="text" class="form-control" id="posts-content" name="content">
           </div>
           <div class="mb-3">
             <label for="posts-date" class="col-form-label">작성일:</label>
-            <input type="text" class="form-control" id="posts-date" name="datePosts">
+            <input type="date" class="form-control" id="posts-date" name="updateTable">
           </div>
 
         </form>
@@ -117,7 +116,7 @@ exampleModal.addEventListener('show.bs.modal', function (event) {
 
 function deleteFn(){
     var id = $("#posts-id").val();
-    var link = "/posts/" + id + "/delete";
+    var link = "/post/" + id + "/delete";
     location.href=link;
 }
 </script>

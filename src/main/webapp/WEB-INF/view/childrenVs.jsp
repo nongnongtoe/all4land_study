@@ -26,7 +26,7 @@
                 onclick="location.href='childrenVs/delete/${child.id}'">
             <span aria-hidden="true">&times;</span>
         </button>
-        <a href="/childrenHistory/${child.id}">
+        <a href="/childVaccine/${child.id}">
             <img src="images/logo.jpg" alt="..." width="350" height="350" class="img-thumbnail">
             <p align="center" class="font-weight-bold">${child.name}</p>
         </a>

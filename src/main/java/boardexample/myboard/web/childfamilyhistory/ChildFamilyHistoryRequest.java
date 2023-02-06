@@ -8,12 +8,14 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 public class ChildFamilyHistoryRequest {
+    private Long id;
     private String name;
     private String memo;
     private Child child;
 
 
     public ChildFamilyHistoryRequest(String name, String memo, Child child) {
+        this.id = id;
         this.name = name;
         this.memo = memo;
         this.child = child;

@@ -27,10 +27,10 @@ public class Child {
     @JoinColumn(name = "user_id")
     private User user;
 
-    @OneToMany(mappedBy = "child")
+    @OneToMany(mappedBy = "child", cascade=CascadeType.ALL)
     private List<ChildVaccine> vaccineList = new ArrayList<>();
 
-    @OneToMany(mappedBy = "child")
+    @OneToMany(mappedBy = "child", cascade=CascadeType.ALL)
     private List<ChildFamilyHistory> historyList = new ArrayList<>();
 
 

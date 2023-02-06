@@ -16,7 +16,7 @@
 <!-- 헤더 영역 -->
 <%@ include file="header.jsp" %>
 <!--콘테이너 영역-->
-<form action="/children/add" method="post">
+<form action="/childrenVs/add" method="post">
     <div class="text-center">
         <img src="/images/logo.jpg" class="rounded" alt="...">
     </div>

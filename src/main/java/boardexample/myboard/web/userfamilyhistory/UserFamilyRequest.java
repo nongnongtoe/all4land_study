@@ -8,6 +8,7 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 public class UserFamilyRequest {
+
     private String name;
     private String memo;
     private User user;

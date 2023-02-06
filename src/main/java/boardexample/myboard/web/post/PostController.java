@@ -1,6 +1,7 @@
 package boardexample.myboard.web.post;
 
 import boardexample.myboard.domain.post.Post;
+import boardexample.myboard.domain.user.Role;
 import boardexample.myboard.domain.user.User;
 import boardexample.myboard.web.session.SessionConst;
 import boardexample.myboard.web.user.UserService;
@@ -36,10 +37,17 @@ public class PostController {
     }
 
     @GetMapping("/list")
-    public String postList(Model model){
+    public String postList(Model model, HttpServletRequest request){
+        HttpSession session = request.getSession();
+        User loginUser = (User) session.getAttribute(SessionConst.LOGIN_USER);
+
         List<Post> allPosts = postService.findAllPosts();
         model.addAttribute("posts", allPosts);
-        return "postList";
+        if(loginUser.getRole().equals(Role.ADMIN)){
+            return "postList";
+        }else{
+            return "postListUser";
+        }
     }
 
     @GetMapping("/{postId}")
@@ -49,7 +57,7 @@ public class PostController {
         model.addAttribute("post", post);
         model.addAttribute("user", user);
 
-        return "post/postView";
+        return "postView";
     }
 
     @GetMapping("/{postId}/delete")
@@ -65,14 +73,14 @@ public class PostController {
         return "post/postEditForm";
     }
 
-    @PostMapping("/{postId}/edit")
-    public String postUpdate(@PathVariable("postId") Long postId, @ModelAttribute("form")postUpdateForm form,
+    @PostMapping("/edit")
+    public String postUpdate(@ModelAttribute("form")postUpdateForm form,
                              HttpServletRequest request){
         HttpSession session = request.getSession();
         User loginUser =(User) session.getAttribute(SessionConst.LOGIN_USER);
         Long loginUserId = loginUser.getId();
 
-        postService.updatePost(postId, loginUserId, form);
+        postService.updatePost(form.getId(), loginUserId, form);
         return "redirect:/post/list";
     }
 

@@ -54,8 +54,7 @@
       <div class="modal-body">
         <form id="testForm" method="post" action="/vaccine/edit" name="vaccine">
            <div class="mb-3">
-            <label for="vaccine-id" class="col-form-label">Index:</label>
-            <input type="number" class="form-control" id="vaccine-id" name="id" readonly>
+            <input type="hidden" class="form-control" id="vaccine-id" name="id" readonly>
           </div>
 
           <div class="mb-3">

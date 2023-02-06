@@ -28,7 +28,7 @@ public class UserFamilyHistoryService {
     }
 
     @Transactional
-    public void update(Long familyId,UserFamilyRequest userFamilyRequest, Long userId){
+    public void update(Long familyId,UserFamilyResponse userFamilyRequest, Long userId){
         User loginUser = userRepository.findById(userId).orElseThrow(() -> new IllegalStateException("사용자를 찾을수 없습니다."));
         MyFamilyHistory myFamilyHistory = getMyFamilyHistory(familyId);
         User myFamilyHistoryUser = myFamilyHistory.getUser();

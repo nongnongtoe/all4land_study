@@ -22,7 +22,7 @@
     <div style="margin-left: 40%; margin-right: 40%">
         <!--아이 삭제 버튼-->
         <button type="button" class="close" aria-label="Close"
-                onclick="location.href='childrenHistory/delete/${child.id}'">
+                onclick="location.href='childrenHs/delete/${child.id}'">
             <span aria-hidden="true">&times;</span>
         </button>
         <a href="/childrenHistory/${child.id}">

@@ -50,7 +50,7 @@
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-        <form id="testForm" method="post" action="/historyList/edit" name="historyList">
+        <form id="testForm" method="post" action="/myFamily/update" name="historyList">
            <div class="mb-3">
             <label for="historyList-id" class="col-form-label">Index:</label>
             <input type="number" class="form-control" id="historyList-id" name="id" readonly>
@@ -59,11 +59,11 @@
 
           <div class="mb-3">
             <label for="historyList-name" class="col-form-label">병명:</label>
-            <input type="text" class="form-control" id="historyList-name" name="nameHistoryList">
+            <input type="text" class="form-control" id="historyList-name" name="name">
           </div>
           <div class="mb-3">
             <label for="historyList-memo" class="col-form-label">비고:</label>
-            <input type="text" class="form-control" id="historyList-memo" name="memoHistoryList">
+            <input type="text" class="form-control" id="historyList-memo" name="memo">
           </div>
 
         </form>
@@ -108,7 +108,7 @@ exampleModal.addEventListener('show.bs.modal', function (event) {
 
 function deleteFn(){
     var id = $("#historyList-id").val();
-    var link = "/historyList/" + id + "/delete";
+    var link = "/myFamily/" + id + "/delete";
     location.href=link;
 }
 </script>

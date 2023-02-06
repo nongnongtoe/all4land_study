@@ -54,16 +54,17 @@ public class HomeController {
     @GetMapping("/")
     public String loginSessionAttribute(@SessionAttribute(name = SessionConst.LOGIN_USER, required = false) User loginUser,
                                         Model model){
-        
+        List<Post> limitPosts = postService.findLimitPosts();
         log.info("확인");
         if(loginUser == null){
+            model.addAttribute("postList", limitPosts);
             return "index";
         }else if(loginUser.getRole() == Role.ADMIN){
 
             model.addAttribute("user", loginUser);
             return "adminHome";
         }else{
-            List<Post> limitPosts = postService.findLimitPosts();
+
             model.addAttribute("postList", limitPosts);
             return "mainHome";
         }

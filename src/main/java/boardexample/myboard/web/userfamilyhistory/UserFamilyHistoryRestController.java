@@ -37,12 +37,6 @@ public class UserFamilyHistoryRestController {
         return userFamilyHistoryService.save(loginUser.getId(), request);
     }
 
-    @PutMapping("/familyhistory/{familyId}")
-    public void update(@PathVariable("familyId") Long id, @RequestBody UserFamilyRequest request, HttpServletRequest servletRequest){
-        HttpSession session = servletRequest.getSession();
-        User loginUser = (User) session.getAttribute(SessionConst.LOGIN_USER);
-        userFamilyHistoryService.update(id, request, loginUser.getId());
-    }
 
 
     @DeleteMapping("/familyhistory/{familyId}")

@@ -36,7 +36,6 @@
         </tbody>
     </table>
 </div>
-${childId}
 <button type="button" class="btn btn-primary btn-sm" onclick="location.href='/childrenHistory/${childId}/add'" style="margin-left: 80%">
     글쓰기
 </button>

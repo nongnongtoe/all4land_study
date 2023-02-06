@@ -109,11 +109,10 @@
     <!-- 콘테이너.게시판 영역 -->
     <h3 class="sec-tit-1">NOTICE &amp; NEWS</h3>
     <button type="button" class="btn btn-outline-primary">공지사항</button>
-    <button type="button" class="btn btn-outline-primary">새소식</button>
     <div class="tab-container-1" style="margin-top: 10px">
     <ul>
         <c:forEach items="${postList}" var="postList">
-        <li>제목 : ${postList.title} 날짜 : ${postList.date}</li>
+        <li onclick="location.href='/post/${postList.id}'">제목 : ${postList.title} 날짜 : ${postList.date}</li>
         </c:forEach>
     </ul>
         <p class="icon-more"><a href="#">more</a></p>

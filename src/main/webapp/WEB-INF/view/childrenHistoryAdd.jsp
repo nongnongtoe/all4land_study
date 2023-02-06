@@ -26,7 +26,7 @@ ${childId}
         <textarea class="form-control" name="memo" placeholder="내용을 입력하세요." id="exampleFormControlTextarea1" rows="20"></textarea>
     </div>
     <button type="submit" class="btn btn-primary btn-sm" style="margin-left: 77%">글쓰기</button>
-    <button type="reset" class="btn btn-secondary btn-sm" onclick="location.href='/childrenHistoryList'">취소</button>
+    <button type="reset" class="btn btn-secondary btn-sm" onclick="location.href='/childrenHistory/${childId}'">취소</button>
 </form>
 <!-- 푸터 영역 -->
 <%@ include file="footer.jsp" %>

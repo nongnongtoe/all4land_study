@@ -45,17 +45,17 @@ public class ChildFamilyHistoryController {
         return "childrenHistoryAdd";
     }
 
-    @PostMapping("/{childHistoryId}/edit")
-    public String updateChildHistory(@PathVariable("childHistoryId") Long childHistoryId, ChildFamilyHistoryRequest request){
+    @PostMapping("/edit")
+    public String updateChildHistory(ChildFamilyHistoryRequest request){
 
-        childFamilyHistoryService.update(childHistoryId, request);
-        return "redirect:/";
+        childFamilyHistoryService.update(request.getId(), request);
+        return "redirect:/childrenHistory";
     }
 
     @GetMapping("/{childHistoryId}/delete")
     public String deleteChildHistory(@PathVariable("childHistoryId") Long childHistoryId){
 
         childFamilyHistoryService.delete(childHistoryId);
-        return "redirect:/";
+        return "redirect:/childrenHistory/" + childHistoryId;
     }
 }

@@ -23,22 +23,34 @@
         <thead>
         <tr>
             <th scope="col">제목</th>
-            <th scope="col">내용</th>
+            <th scope="col">작성자</th>
             <th scope="col">작성일</th>
         </tr>
         </thead>
         <tbody>
-        <c:forEach items="${posts}" var="posts">
-            <tr onClick="location.href='/post/${posts.id}'">
-                <td>${posts.title}</td>
-                <td>${posts.content}</td>
-                <td>${posts.date}</td>
-            </tr>
-        </c:forEach>
+        <tr>
+                <td>${post.title}</td>
+                <td>${user.role}</td>
+                <td>${post.date}</td>
+        </tr>
         </tbody>
 
     </table>
+    <table class="table">
+            <thead>
+            <tr>
+                <th scope="col">내용</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                    <td>${post.content}</td>
+            </tr>
+            </tbody>
+
+        </table>
 </div>
+
 <!-- 푸터 영역 -->
 <%@ include file="footer.jsp" %>
 </body>

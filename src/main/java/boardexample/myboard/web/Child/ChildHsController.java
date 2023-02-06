@@ -6,6 +6,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
@@ -29,6 +30,8 @@ public class ChildHsController {
 
     @GetMapping("/add")
     public String childAddPage(){
+
+
         return "childrenAdd";
     }
 
@@ -37,9 +40,16 @@ public class ChildHsController {
     public String childAdd(ChildRequest childRequest ,HttpServletRequest request){
         User user = getUser(request);
         childService.save(user.getId(), childRequest);
-        return "children";
+        return "redirect:/childrenHs";
     }
 
+    @GetMapping("/delete/{childId}")
+    public String deleteChild(@PathVariable("childId") Long childId, HttpServletRequest request){
+        User user = getUser(request);
+
+        childService.delete(childId, user.getId());
+        return "redirect:/childrenHs";
+    }
 
 
     private User getUser(HttpServletRequest request) {

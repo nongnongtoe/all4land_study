@@ -13,6 +13,7 @@ import java.time.LocalDate;
 @Data
 @NoArgsConstructor
 public class VaccineRequest {
+    private Long id;
 
     @NotBlank
     private String name;
@@ -27,7 +28,8 @@ public class VaccineRequest {
     private Child child;
 
     @Builder
-    public VaccineRequest(String name, LocalDate inoculationDate, String memo, String hospital, Child child) {
+    public VaccineRequest(Long id,String name, LocalDate inoculationDate, String memo, String hospital, Child child) {
+        this.id = id;
         this.name = name;
         this.inoculationDate = inoculationDate;
         this.memo = memo;

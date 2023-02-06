@@ -6,10 +6,7 @@ import boardexample.myboard.web.session.SessionConst;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
@@ -44,7 +41,24 @@ public class UserFamilyHistoryController {
         User loginUser = (User) session.getAttribute(SessionConst.LOGIN_USER);
 
         userFamilyHistoryService.save(loginUser.getId(), form);
-        return "redirect:/";
+        return "redirect:/myFamily";
+    }
+
+    @PostMapping("/update")
+    public String userFamilyUpdate( Model model, UserFamilyResponse form
+    ,HttpServletRequest request){
+        HttpSession session = request.getSession();
+        User loginUser = (User) session.getAttribute(SessionConst.LOGIN_USER);
+        userFamilyHistoryService.update(form.getId(), form, loginUser.getId());
+        return "redirect:/myFamily";
+    }
+
+    @GetMapping("/{myFamilyId}/delete")
+    public String userFamilyDelete(@PathVariable("myFamilyId") Long myFamilyId, HttpServletRequest request){
+        HttpSession session = request.getSession();
+        User loginUser = (User) session.getAttribute(SessionConst.LOGIN_USER);
+        userFamilyHistoryService.delete(myFamilyId, loginUser.getId());
+        return "redirect:/myFamily";
     }
 
 }
