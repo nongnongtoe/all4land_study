@@ -30,78 +30,85 @@
         <c:forEach items="${vaccineList}" var="vaccineList">
             <tr>
                 <td><button  data-bs-toggle="modal" style="border: none; background-color:transparent;"
-                                         data-bs-target="#exampleModal" data-bs-title=${vaccineList.name}
-                                         data-bs-memo=${vaccineList.memo}>${vaccineList.name}</button></td>
-                <td><button  data-bs-toggle="modal" style="border: none; background-color:transparent;"
-                             data-bs-target="#exampleModal" data-bs-memo=${vaccineList.memo}
-                                     data-bs-title=${vaccineList.name}>${vaccineList.memo}</button></td>
+                             data-bs-target="#exampleModal" data-bs-id=${vaccineList.id} data-bs-name=${vaccineList.name} data-bs-memo=${vaccineList.memo} >${vaccineList.name}</td>
+                <td>${vaccineList.memo}</td>
             </tr>
         </c:forEach>
         </tbody>
     </table>
 </div>
-<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">New message</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-                <form id="testForm" method="post" action="/vaccineList/edit" name="vaccineList">
-                    <div class="mb-3">
-                        <input type="hidden" class="form-control" id="vaccinList-id" name="id" readonly>
-                    </div>
 
-                    <div class="mb-3">
-                        <label for="vaccineList.name" class="col-form-label">백신 이름:</label>
-                        <input type="text" class="form-control" id="vaccineList.name" name="title" disabled>
-                    </div>
-                    <div class="mb-3">
-                        <label for="vaccineList.memo" class="col-form-label">병명:</label>
-                        <input type="text" class="form-control" id="vaccineList.memo" name="memoVaccine" disabled>
-                    </div>
 
-                </form>
-            </div>
-            <div class="modal-footer">
-                <button type="submit" form="testForm" class="btn btn-secondary">수정</button>
-                <button type="button" class="btn btn-primary" onclick="deleteFn()">삭제</button>
-            </div>
-        </div>
-    </div>
-</div>
-<button type="button" class="btn btn-primary btn-sm" onclick="location.href='/childVaccine/${childId}/add'" style="margin-left: 80%">
+<button type="button" class="btn btn-primary btn-sm" onclick="location.href='/childrenHistory/${childId}/add'" style="margin-left: 80%">
     글쓰기
 </button>
 <!-- 푸터 영역 -->
 <%@ include file="footer.jsp" %>
+
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">아이의 가족력 수정</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form id="testForm" method="vaccine" action="/vaccine/edit" name="vaccineList">
+                    <div class="mb-3">
+                        <input type="number" class="form-control" id="vaccineList-id" name="id" readonly>
+                    </div>
+                    <div class="mb-3">
+                        <label for="vaccineList-name" class="col-form-label">이름:</label>
+                        <input type="text" class="form-control" id="vaccineList-name" name="name">
+                    </div>
+                    <div class="mb-3">
+                        <label for="vaccineList-memo" class="col-form-label">병명:</label>
+                        <input type="text" class="form-control" id="vaccineList-memo" name="memo">
+                    </div>
+                    <button type="submit" form="testForm" class="btn btn-secondary">수정</button>
+                    <button type="button" class="btn btn-primary" onclick="deleteFn()">삭제</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+</form>
+</div>
 </body>
+</html>
+
 <script>
     var exampleModal = document.getElementById('exampleModal')
     exampleModal.addEventListener('show.bs.modal', function (event) {
         // Button that triggered the modal
         var button = event.relatedTarget
 
-        //  data-bs-* attributes 모달 버튼에서 데이터값 가져오기 data-bs-star
-        var memo = button.getAttribute('data-bs-memo')
+        //  data-bs-* attributes 모달 버튼에서 데이터값 가져오기 data-bs-content
         var id = button.getAttribute('data-bs-id')
+        var name = button.getAttribute('data-bs-name')
+        var memo = button.getAttribute('data-bs-memo')
+
+
 
 
         var modalTitle = exampleModal.querySelector('.modal-title')
         // 모달창 데이터 입력 화면 아이디로 가져오기
-        var modalNameInput = exampleModal.querySelector('#recipient-name');
-        var modalMemoInput = exampleModal.querySelector('#vaccine-memo');
+        var modalHistoryNameInput = exampleModal.querySelector('#vaccineList-name');
+        var modalHistoryMemoInput = exampleModal.querySelector('#vaccineList-memo');
+        var modalIdInput = exampleModal.querySelector('#vaccineList-id');
 
-        modalTitle.textContent = '백신 이름 : ' + id
-        modalMemoInput.value = memo;
-        modalNameInput.value = name;
+
+        modalTitle.textContent = '번호 : ' + id
+        modalIdInput.value = id;
+        modalHistoryNameInput.value = name;
+        modalHistoryMemoInput.value = memo;
+
     })
 
     function deleteFn(){
-        var id = $("#vaccine-id").val();
-        var link = "/vaccine/" + id + "/delete";
+        var id = $('#vaccineList-name').val();
+        var link = "/vaccine/" + name + "/delete";
         location.href=link;
     }
+
 </script>
-</html>
