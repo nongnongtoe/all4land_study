@@ -119,4 +119,5 @@ function deleteFn(){
     var link = "/post/" + id + "/delete";
     location.href=link;
 }
+
 </script>
