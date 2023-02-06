@@ -19,10 +19,10 @@
     </a>
 
     <ul class="nav nav-tabs">
-      <li class="nav-item"><a href="#" class="nav-link px-2 link-secondary">Home</a></li>&nbsp;&nbsp;&nbsp;
+      <li class="nav-item"><a href="/" class="nav-link px-2 link-secondary">Home</a></li>&nbsp;
       </li>
       </li>
-      <li class="nav-item"><a href="#" class="nav-link px-2 link-dark">Community</a></li>
+      <li class="nav-item"><a href="#" class="nav-link px-2 link-dark">공지사항</a></li>
       <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true"
            aria-expanded="false">관련 사이트</a>&nbsp;&nbsp;&nbsp;
