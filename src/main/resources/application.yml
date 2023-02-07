@@ -15,10 +15,15 @@ spring :
     view :
       prefix : /WEB-INF/view/
       suffix : .jsp
-
+  servlet :
+    multipart :
+      max-file-size : 1MB
+      max-request-size : 10MB
 
 logging.level:
   org.hibernate.SQL : debug
 
+file :
+  dir : D:/test/
 
 

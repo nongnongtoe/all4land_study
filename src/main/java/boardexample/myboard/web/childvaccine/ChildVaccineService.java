@@ -29,10 +29,12 @@ public class ChildVaccineService {
     }
 
     @Transactional
-    public void update(Long vaccineId, VaccineRequest request){
+    public void update(Long vaccineId, VaccineRequest request, Long childId){
         ChildVaccine vaccine = findOne(vaccineId);
+        Child getChild = getchild(childId);
+        request.setChild(getChild);
         validateChild(request, vaccine);
-        vaccine.updateChildVaccine(request.getName(), request.getInoculationDate(), request.getMemo(), request.getHospital());
+        vaccine.updateChildVaccine(request.getName(), request.getInoculationDate(), request.getMemo(), request.getHospital(), request.getChild());
     }
 
     @Transactional

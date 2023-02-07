@@ -30,10 +30,6 @@ public class ChildFamilyHistoryRestController {
         return childFamilyHistoryService.save(request.getChild().getId(), request);
     }
 
-    @PutMapping("/history/{id}")
-    public void update(@PathVariable Long id, @RequestBody ChildFamilyHistoryRequest request){
-        childFamilyHistoryService.update(id, request);
-    }
 
     @DeleteMapping("/history/{id}")
     public void delete(@PathVariable Long id){

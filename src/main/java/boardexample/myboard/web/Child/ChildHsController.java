@@ -1,6 +1,7 @@
 package boardexample.myboard.web.Child;
 
 import boardexample.myboard.domain.user.User;
+import boardexample.myboard.web.file.FileService;
 import boardexample.myboard.web.session.SessionConst;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
@@ -12,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
+import java.io.IOException;
 import java.util.List;
 
 @Controller
@@ -37,9 +39,9 @@ public class ChildHsController {
 
 
     @PostMapping("/add")
-    public String childAdd(ChildRequest childRequest ,HttpServletRequest request){
+    public String childAdd(ChildRequest childRequest ,HttpServletRequest request) throws IOException {
         User user = getUser(request);
-        childService.save(user.getId(), childRequest);
+        Long childId = childService.save(user.getId(), childRequest);
         return "redirect:/childrenHs";
     }
 

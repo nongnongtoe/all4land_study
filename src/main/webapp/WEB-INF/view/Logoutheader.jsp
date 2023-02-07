@@ -27,8 +27,8 @@
         <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true"
            aria-expanded="false">관련 사이트</a>&nbsp;&nbsp;&nbsp;
         <div class="dropdown-menu">
-          <a class="dropdown-item" href="#">need to modify</a>&nbsp;&nbsp;&nbsp;
-          <a class="dropdown-item" href="#">need to modify</a>
+                            <a class="dropdown-item" href="https://idolbom.go.kr/front/main/main.do">아이 돌봄 서비스</a>&nbsp;&nbsp;&nbsp;
+                            <a class="dropdown-item" href="https://www.bokjiro.go.kr/ssis-tbu/index.do">복지로(아이복지)</a>
         </div>
       </li>
     </ul>

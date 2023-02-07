@@ -1,6 +1,7 @@
 package boardexample.myboard.domain.child;
 
 import boardexample.myboard.domain.familydiseasehistory.ChildFamilyHistory;
+import boardexample.myboard.domain.file.FileEntity;
 import boardexample.myboard.domain.user.User;
 import boardexample.myboard.domain.vachine.ChildVaccine;
 import lombok.AccessLevel;
@@ -32,6 +33,9 @@ public class Child {
 
     @OneToMany(mappedBy = "child", cascade=CascadeType.ALL)
     private List<ChildFamilyHistory> historyList = new ArrayList<>();
+
+    @OneToMany(mappedBy = "child", cascade=CascadeType.ALL)
+    private List<FileEntity> fileList = new ArrayList<>();
 
 
     public void updateChild(String name){

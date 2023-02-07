@@ -23,7 +23,7 @@
         <thead>
         <tr>
             <th scope="col">병명</th>
-            <th scope="col">주석</th>
+            <th scope="col">비고</th>
         </tr>
         </thead>
         <tbody>
@@ -53,7 +53,7 @@
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-        <form id="testForm" method="history" action="/history/edit" name="historyList">
+        <form id="testForm" method="post" action="/childrenHistory/edit/${childId}" name="historyList">
            <div class="mb-3">
                <input type="number" class="form-control" id="historyList-id" name="id" readonly>
            </div>
@@ -62,7 +62,7 @@
             <input type="text" class="form-control" id="historyList-name" name="name">
           </div>
           <div class="mb-3">
-            <label for="historyList-memo" class="col-form-label">주석:</label>
+            <label for="historyList-memo" class="col-form-label">비고:</label>
             <input type="text" class="form-control" id="historyList-memo" name="memo">
           </div>
 <button type="submit" form="testForm" class="btn btn-secondary">수정</button>
@@ -106,8 +106,8 @@ exampleModal.addEventListener('show.bs.modal', function (event) {
 })
 
 function deleteFn(){
-    var id = $('#historyList-name').val();
-    var link = "/history/" + name + "/delete";
+    var id = $('#historyList-id').val();
+    var link = "/childrenHistory/" + id + "/delete";
     location.href=link;
 }
 

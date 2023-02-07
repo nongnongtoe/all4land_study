@@ -42,20 +42,20 @@ public class ChildFamilyHistoryController {
     @PostMapping("/{childId}/add")
     public String createChildHistoryAdd(@PathVariable("childId") Long childId, ChildFamilyHistoryRequest request,Model model){
         childFamilyHistoryService.save(childId, request);
-        return "childrenHistoryAdd";
+        return "redirect:/";
     }
 
-    @PostMapping("/edit")
-    public String updateChildHistory(ChildFamilyHistoryRequest request){
+    @PostMapping("/edit/{childId}")
+    public String updateChildHistory(@PathVariable("childId") Long childId, ChildFamilyHistoryRequest request){
 
-        childFamilyHistoryService.update(request.getId(), request);
-        return "redirect:/childrenHistory";
+        childFamilyHistoryService.update(request.getId(), request,childId);
+        return "redirect:/childrenHistory/" + childId ;
     }
 
     @GetMapping("/{childHistoryId}/delete")
     public String deleteChildHistory(@PathVariable("childHistoryId") Long childHistoryId){
 
         childFamilyHistoryService.delete(childHistoryId);
-        return "redirect:/childrenHistory/" + childHistoryId;
+        return "redirect:/";
     }
 }

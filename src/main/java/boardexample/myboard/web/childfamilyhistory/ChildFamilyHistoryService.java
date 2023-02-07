@@ -29,7 +29,9 @@ public class ChildFamilyHistoryService {
     }
 
     @Transactional
-    public void update(Long id, ChildFamilyHistoryRequest request) {
+    public void update(Long id, ChildFamilyHistoryRequest request, Long childId) {
+        Child child = childRepository.findById(childId).orElseThrow(() -> new IllegalStateException("자식을 찾을수없습니다."));
+        request.setChild(child);
         ChildFamilyHistory history = findOne(id);
         history.updateChildFamilyHistory(request.getName(), request.getMemo(), request.getChild());
     }

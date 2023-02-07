@@ -29,10 +29,7 @@ public class ChildVaccineRestController {
         return childVaccineService.save(request.getChild().getId(), request);
     }
 
-    @PutMapping("/vaccine/{vaccineId}")
-    public void update(@PathVariable Long vaccineId, @RequestBody VaccineRequest request){
-        childVaccineService.update(vaccineId, request);
-    }
+
 
     @DeleteMapping("/vaccine/{vaccineId}")
     public void delete(@PathVariable Long vaccineId){

@@ -35,11 +35,12 @@ public class ChildVaccine {
         child.getVaccineList().add(this);
     }
 
-    public void updateChildVaccine(String name, LocalDate inoculationDate, String memo, String hospital) {
+    public void updateChildVaccine(String name, LocalDate inoculationDate, String memo, String hospital, Child child) {
         this.name = name;
         this.inoculationDate = inoculationDate;
         this.memo = memo;
         this.hospital = hospital;
+        this.child = child;
     }
 
     @Builder

@@ -23,7 +23,7 @@
         <thead>
         <tr>
             <th scope="col">백신 이름</th>
-            <th scope="col">병명</th>
+            <th scope="col">비고</th>
         </tr>
         </thead>
         <tbody>
@@ -39,7 +39,7 @@
 </div>
 
 
-<button type="button" class="btn btn-primary btn-sm" onclick="location.href='/childrenHistory/${childId}/add'" style="margin-left: 80%">
+<button type="button" class="btn btn-primary btn-sm" onclick="location.href='/childVaccine/${childId}/add'" style="margin-left: 80%">
     글쓰기
 </button>
 <!-- 푸터 영역 -->
@@ -53,16 +53,16 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                <form id="testForm" method="vaccine" action="/vaccine/edit" name="vaccineList">
+                <form id="testForm" method="post" action="/childVaccine/edit/${childId}" name="vaccineList">
                     <div class="mb-3">
                         <input type="number" class="form-control" id="vaccineList-id" name="id" readonly>
                     </div>
                     <div class="mb-3">
-                        <label for="vaccineList-name" class="col-form-label">이름:</label>
+                        <label for="vaccineList-name" class="col-form-label">백신이름</label>
                         <input type="text" class="form-control" id="vaccineList-name" name="name">
                     </div>
                     <div class="mb-3">
-                        <label for="vaccineList-memo" class="col-form-label">병명:</label>
+                        <label for="vaccineList-memo" class="col-form-label">비고</label>
                         <input type="text" class="form-control" id="vaccineList-memo" name="memo">
                     </div>
                     <button type="submit" form="testForm" class="btn btn-secondary">수정</button>
@@ -106,8 +106,8 @@
     })
 
     function deleteFn(){
-        var id = $('#vaccineList-name').val();
-        var link = "/vaccine/" + name + "/delete";
+        var id = $('#vaccineList-id').val();
+        var link = "/childVaccine/" + id + "/delete";
         location.href=link;
     }
 

@@ -23,7 +23,7 @@ public class childVaccineController {
         List<VaccineResponse> vaccineList = childVaccineService.findByChildAllVaccine(childId);
 
         model.addAttribute("vaccineList", vaccineList);
-
+        model.addAttribute("childId", childId);
         return "childrenVaccineList";
     }
 
@@ -39,9 +39,16 @@ public class childVaccineController {
         return "redirect:/childVaccine/" + childId;
     }
 
-    @PostMapping("/edit")
-    public String childVaccineEdit(Model model, VaccineRequest request){
-        childVaccineService.update(request.getId(), request);
-        return "redirect:/childVaccine";
+    @PostMapping("/edit/{childId}")
+    public String childVaccineEdit(@PathVariable("childId") Long childId,Model model, VaccineRequest request){
+        childVaccineService.update(request.getId(), request, childId);
+        return "redirect:/";
+    }
+
+    @GetMapping("/{childVaccineId}/delete")
+    public String deleteChildVaccineList(@PathVariable("childVaccineId") Long childVaccineId){
+        childVaccineService.delete(childVaccineId);
+
+        return "redirect:/";
     }
 }
